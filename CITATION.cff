@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this dataset, please cite it as below."
+type: dataset
+title: "ubigeocensos: Peruvian Territorial Units in the 1981-2025 Population Censuses"
+version: 0.1.0
+date-released: 2026-11-01
+license: MIT
+authors:
+  - family-names: "Pérez Portocarrero"
+    given-names: "Alejandro"
+    email: "alejandroperezportocarrero@gmail.com"
+    affiliation: "University of Manchester"
+repository-code: "https://github.com/alejandroperezportocarrero/ubigeocensos"
+keywords:
+  - Peru
+  - ubigeo
+  - census
+  - districts
+  - territorial units
+  - R

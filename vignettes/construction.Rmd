@@ -1,0 +1,120 @@
+---
+title: "How the datasets are built"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{How the datasets are built}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+library(ubigeocensos)
+```
+
+# Goal
+
+`ubigeocensos` records the **presence of each department, province and district** of Peru in the national population censuses of **1981, 1993, 2007, 2017 and 2025**, together with each unit's **UBIGEO code** and its **date and legal instrument of creation**. The aim is to make it easier to link census data across years, for example when building district panels that have to account for newly created districts.
+
+The reference frame is the political-administrative division of the 2025 Census. The 2025 INEI UBIGEO is the unique identifier.
+
+The datasets are built by `data-raw/make_datasets.R`, which runs the scripts in `data-raw/` in order.
+
+# Sources
+
+| Source | Use | File |
+|---|---|---|
+| INEI. List of UBIGEO codes, 2025 Census | Units in force in 2025 | `data-raw/ubigeo_censo2025.xlsx` |
+| INEI (1999). *Perú: Directorio Nacional de Municipalidades Provinciales y Distritales 1999*, table X.3 | Creation date and legal instrument of the districts that existed in 1999 | `data-raw/inei_lib0362/dis-*.txt` |
+
+## INEI (1999): Directorio Nacional de Municipalidades
+
+> Instituto Nacional de Estadística e Informática (1999). *Perú: Directorio Nacional de Municipalidades Provinciales y Distritales 1999*. Lima: INEI. <https://proyectos.inei.gob.pe/web/biblioineipub/bancopub/Est/Lib0362/indice.htm>
+
+For each department the publication has a table titled *"Dispositivo legal de creación, población total, superficie, densidad poblacional y población electoral de los distritos: 1999"*. For Lima it is table 15.3 (<https://proyectos.inei.gob.pe/web/biblioineipub/bancopub/Est/Lib0362/dis-lima.htm>), and the other departments follow the pattern `dis-<code>.htm` (`dis-amaz.htm`, `dis-anca.htm`, …, `dis-ucay.htm`).
+
+For each district, the table reports:
+
+- the type of legal instrument (Ley, Decreto, Decreto Ley, Ley Regional), its number and its date;
+- `EPOCA INDEP.` for districts that date from the Independence era and have no identified instrument of creation;
+- total population at 30/06/1998, surface (km²), density and electoral population at 04/01/1999.
+
+**Scope.** The table covers only districts that existed in 1999. Districts created afterwards need another source, such as the laws published in *El Peruano* or the PCM's territorial demarcation records.
+
+# Step 1: units in the 2025 Census
+
+Script: `data-raw/01_units_2025.R`.
+
+```{r u25}
+sapply(list(departments = departments, provinces = provinces, districts = districts), nrow)
+```
+
+Checks run by the script:
+
+- UBIGEO codes are unique;
+- every district has its province and every province has its department;
+- no province is left without districts.
+
+# Step 2: creation dates (INEI 1999)
+
+Script: `data-raw/02_inei1999_creation.R`. The script reads the text copied from each `dis-<code>.htm`, turns it into a table and matches it to the 2025 UBIGEO by department, province and normalised name (upper case, no accents, keeping the Ñ). It stops with an error if any district is left unmatched.
+
+```{r inei}
+do.call(rbind, lapply(split(inei1999_districts, inei1999_districts$dept), function(d)
+  data.frame(dept = d$dept[1], districts = nrow(d), matched = sum(!is.na(d$inei)),
+             independence_era = sum(d$independence_era),
+             with_date = sum(!is.na(d$created_date)))))
+```
+
+## Name equivalences
+
+Some districts are named differently in 1999 and 2025. The equivalences are coded in `name_equivalences`:
+
+| Dept. | Province | Name 1999 | Name 2025 | UBIGEO 2025 |
+|---|---|---|---|---|
+| Lima | Lima | Magdalena Vieja | Pueblo Libre | 150121 |
+| Lima | Huarochirí | Laraos | San Pedro de Laraos | 150712 |
+| Lima | Yauyos | Ayauca | Allauca | 151003 |
+
+## Notes on the source
+
+Values that look wrong are kept as published and flagged in the `note` column:
+
+```{r notes}
+subset(inei1999_districts, !is.na(note),
+       c(inei, district_1999, instrument_number, date_text, note))
+```
+
+The original page also has encoding errors (e.g. `CAÃ‘ETE`), which `fix_mojibake()` corrects.
+
+## Districts by period of creation (Lima)
+
+```{r periods}
+lima <- subset(districts, department == "LIMA")
+period <- with(lima, ifelse(independence_era, "Independence era",
+               ifelse(created_date < as.Date("1900-01-01"), "1821-1899",
+               ifelse(created_date < as.Date("1950-01-01"), "1900-1949",
+               ifelse(created_date < as.Date("1981-07-12"), "1950-1981 census",
+                      "After the 1981 census")))))
+table(period)
+```
+
+The following districts were created after the 1981 Census. Their creation dates mean they could not have been enumerated in it, which Step 3 will check against the census lists:
+
+```{r post1981}
+subset(lima, created_date >= as.Date("1981-07-12"),
+       c(inei, province, district, legal_instrument, created_date))
+```
+
+# Pending
+
+1. Add the `dis-*.htm` tables for the other 24 departments (the parser already accepts them).
+2. Creation dates for districts created between 1999 and 2025, and for provinces and departments.
+3. Presence in the 2017 and 2007 censuses from INEI's UBIGEO lists.
+4. Presence in the 1993 and 1981 censuses, including a crosswalk of old codes.
+
+# References
+
+Instituto Nacional de Estadística e Informática (1999). *Perú: Directorio Nacional de Municipalidades Provinciales y Distritales 1999*. Lima: INEI. <https://proyectos.inei.gob.pe/web/biblioineipub/bancopub/Est/Lib0362/indice.htm>
+
+Instituto Nacional de Estadística e Informática (2025). *Censos Nacionales 2025: listado de ubigeos*. Lima: INEI.
