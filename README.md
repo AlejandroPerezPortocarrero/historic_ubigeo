@@ -122,6 +122,3 @@ devtools::document()
 - **JNE 2021**: Jurado Nacional de Elecciones (2021). *Resolución N.° 0913-2021-JNE*, 22 de noviembre de 2021. <https://portal.jne.gob.pe/portal_documentos/files/72803f45-044d-4c92-841b-6b2dbe8efc0a.pdf>
 - **Congreso 2025**: Congreso de la República (2025). *Leyes de creación de distritos*. Área de Estadística Parlamentaria. <https://www.congreso.gob.pe/Docs/DGP/GestionInformacionEstadistica/files/publicaciones-25/leyes-declarativas-creaci%C3%93n-distritos.pdf>
 
-## License
-
-MIT
