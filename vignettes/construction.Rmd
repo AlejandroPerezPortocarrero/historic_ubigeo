@@ -22,24 +22,53 @@ The datasets are built by `data-raw/make_datasets.R`, which runs the scripts in 
 
 # Sources
 
-| Source | Use | File |
-|---|---|---|
-| INEI. List of UBIGEO codes, 2025 Census | Units in force in 2025 | `data-raw/ubigeo_censo2025.xlsx` |
-| INEI (1999). *Perú: Directorio Nacional de Municipalidades Provinciales y Distritales 1999*, table X.3 | Creation date and legal instrument of the districts that existed in 1999 | `data-raw/inei_lib0362/dis-*.txt` |
+| Short name | Reference | Used for | File in `data-raw/` |
+|---|---|---|---|
+| INEI 2025 | INEI. List of UBIGEO codes, 2025 Census | Frame of units | `ubigeo_censo2025.xlsx` |
+| INEI 1999 | INEI (1999), *Directorio Nacional de Municipalidades Provinciales y Distritales 1999*, table X.3 | Exact date and instrument of creation of districts existing in 1999 (Lima so far) | `inei_lib0362/dis-*.txt` |
+| INEI 2020 | INEI (2020), *Proyecciones de Población por Departamento, Provincia y Distrito, 2018 - 2020*, Boletín Especial Nº 26, chapter 2 | Counts at each census; provinces and districts created 1981–2019 and their territorial origin | `inei2020_be26/cap02_division_politica_2019.pdf` |
+| INEI 2022 | INEI (2022), *Proyecciones de Población Total según Departamento, Provincia y Distrito, 2018 – 2022*, Boletín Especial Nº 27, Anexo 2 | Update of INEI 2020 to 31/12/2021: counts at 2021, the 16 districts created 2020–2021 and their territorial origin | `inei2022_be27/` (page images and transcriptions) |
+| JNE 2021 | Jurado Nacional de Elecciones, Resolución N.° 0913-2021-JNE | Exact dates of the 16 districts created 2020–2021 | `post2019/districts_created_2020_2025.csv` |
+| Congreso 2025 | Congreso de la República, *Leyes de creación de distritos* | Alto Trujillo (2022) and Santa Rosa de Loreto (2025) | `post2019/districts_created_2020_2025.csv` |
 
 ## INEI (1999): Directorio Nacional de Municipalidades
 
-> Instituto Nacional de Estadística e Informática (1999). *Perú: Directorio Nacional de Municipalidades Provinciales y Distritales 1999*. Lima: INEI. <https://proyectos.inei.gob.pe/web/biblioineipub/bancopub/Est/Lib0362/indice.htm>
+For each department, the 1999 directory has a table titled *"Dispositivo legal de creación, población total, superficie, densidad poblacional y población electoral de los distritos: 1999"*. For Lima it is table 15.3 (<https://proyectos.inei.gob.pe/web/biblioineipub/bancopub/Est/Lib0362/dis-lima.htm>), and the other departments follow the pattern `dis-<code>.htm` (`dis-amaz.htm`, …, `dis-ucay.htm`). For each district the table gives the type, number and date of the legal instrument, or `EPOCA INDEP.` for districts dating from the Independence era. It also gives population (1998), surface, density and electoral population (1999). It covers only districts that existed in 1999.
 
-For each department the publication has a table titled *"Dispositivo legal de creación, población total, superficie, densidad poblacional y población electoral de los distritos: 1999"*. For Lima it is table 15.3 (<https://proyectos.inei.gob.pe/web/biblioineipub/bancopub/Est/Lib0362/dis-lima.htm>), and the other departments follow the pattern `dis-<code>.htm` (`dis-amaz.htm`, `dis-anca.htm`, …, `dis-ucay.htm`).
+## INEI (2020): Proyecciones de Población 2018–2020, chapter 2
 
-For each district, the table reports:
+Chapter 2, *"División política y administrativa al 31 de diciembre del 2019"*, contains:
 
-- the type of legal instrument (Ley, Decreto, Decreto Ley, Ley Regional), its number and its date;
-- `EPOCA INDEP.` for districts that date from the Independence era and have no identified instrument of creation;
-- total population at 30/06/1998, surface (km²), density and electoral population at 04/01/1999.
+1. the number of departments, provinces and districts at each census date, 1940–2017, and at 31/12/2019;
+2. the number of provinces and districts by department at each census;
+3. the provinces created between 12/07/1981 and 31/12/2019, with law number, publication date and UBIGEO;
+4. the districts created 1981–2019, with law number, year and **territorial origin** (the districts each one was carved from);
+5. a map of the districts created 1981–2019.
 
-**Scope.** The table covers only districts that existed in 1999. Districts created afterwards need another source, such as the laws published in *El Peruano* or the PCM's territorial demarcation records.
+Table 4 is read from the word coordinates of the PDF, because its columns are right-aligned and some cells wrap over two lines. The few wrapped cells are fixed by hand in `03_inei2020_division.R`.
+
+## INEI (2022): Proyecciones de Población Total 2018–2022, Anexo 2
+
+Anexo 2 of Boletín Especial Nº 27, *"División política y administrativa al 31 de diciembre de 2021"*, updates the four tables above to 31/12/2021:
+
+- Cuadros 1 and 2 add the counts at 31/12/2021: 196 provinces and 1,890 districts.
+- Cuadro 3 lists the same 43 provinces, because none were created in 2020–2021.
+- Cuadro 4 adds rows 195–210, the 16 districts created in 2020–2021, with their law and territorial origin. It also renumbers the earlier rows consecutively, since INEI (2020) had skipped numbers 161–169.
+
+These tables were provided as page images, which are kept in `data-raw/inei2022_be27/images/`. Cuadros 1 and 2 and the new rows of Cuadro 4 were transcribed into CSV files in the same folder. Every transcribed figure that INEI (2020) also reports is checked against the values parsed from the INEI (2020) PDF, and the build stops if any differs. All of them agree.
+
+The two editions are combined in `division_counts`, `inei_provinces_created`, `inei_districts_created` and `inei_district_origins`. A `source` column says which edition(s) report each row.
+
+## Districts created after 2019
+
+The 2025 frame has 1,892 districts, against 1,874 at 31/12/2019 (INEI 2020) and 1,890 at 31/12/2021 (INEI 2022). Of the 18 districts created in between:
+
+- the 16 created in 2020–2021 are listed in INEI (2022), with year and law. Their exact dates come from JNE Resolución N.° 0913-2021-JNE, and the build checks that both sources agree on law and year;
+- the two created after 2021, Alto Trujillo (Ley 31644, 2022) and Santa Rosa de Loreto (Ley 32403, 2025), come from the Congreso's list of district-creation laws.
+
+```{r post2019}
+districts_created_2020_2025[, c("inei", "province", "district", "law_number", "date", "source")]
+```
 
 # Step 1: units in the 2025 Census
 
@@ -55,66 +84,106 @@ Checks run by the script:
 - every district has its province and every province has its department;
 - no province is left without districts.
 
-# Step 2: creation dates (INEI 1999)
+# Step 2: creation dates and instruments
 
-Script: `data-raw/02_inei1999_creation.R`. The script reads the text copied from each `dis-<code>.htm`, turns it into a table and matches it to the 2025 UBIGEO by department, province and normalised name (upper case, no accents, keeping the Ñ). It stops with an error if any district is left unmatched.
+Creation data come from four sources, applied in this order:
 
-```{r inei}
-do.call(rbind, lapply(split(inei1999_districts, inei1999_districts$dept), function(d)
-  data.frame(dept = d$dept[1], districts = nrow(d), matched = sum(!is.na(d$inei)),
-             independence_era = sum(d$independence_era),
-             with_date = sum(!is.na(d$created_date)))))
+1. **INEI 1999** gives the exact date and instrument for each district that existed in 1999. So far this is Lima, matched by department, province and normalised name.
+2. **INEI 2020 / INEI 2022** give the publication date and law for the 43 provinces created 1981–2021, and the year and law for the 210 districts created 1981–2021. When INEI 1999 also has the district, its exact date is kept and the law numbers are checked against each other.
+3. **JNE 2021 / Congreso 2025** give the exact date and law for the 18 districts created 2020–2025.
+
+```{r sources}
+table(districts$creation_source, useNA = "ifany")
 ```
 
-## Name equivalences
+Districts with no creation source (`NA`) existed before the 1981 Census but their creation date is not yet in the package. Adding the INEI 1999 tables for the other 24 departments will fill most of them.
 
-Some districts are named differently in 1999 and 2025. The equivalences are coded in `name_equivalences`:
+## Name equivalences and source issues
 
-| Dept. | Province | Name 1999 | Name 2025 | UBIGEO 2025 |
-|---|---|---|---|---|
-| Lima | Lima | Magdalena Vieja | Pueblo Libre | 150121 |
-| Lima | Huarochirí | Laraos | San Pedro de Laraos | 150712 |
-| Lima | Yauyos | Ayauca | Allauca | 151003 |
+Matching names across sources needs a few equivalences, which are coded in the scripts:
 
-## Notes on the source
+| Source | Name in source | Name in 2025 | UBIGEO 2025 |
+|---|---|---|---|
+| INEI 1999 | Magdalena Vieja (Lima) | Pueblo Libre | 150121 |
+| INEI 1999 | Laraos (Huarochirí) | San Pedro de Laraos | 150712 |
+| INEI 1999 | Ayauca (Yauyos) | Allauca | 151003 |
+| INEI 2020 | Campo Verde; Callaria; Antonio Raymondi | Campoverde; Callería; Raimondi | 250102; 250101; 250201 |
+| INEI 2020 | Codo de Pozuzo; Quisqui | Codo del Pozuzo; Quisqui (Kichki) | 100902; 100106 |
+| INEI 2020 | Cutarapi; Capaso; Conina; Yanahuara; San Pedro de Putina Puncu | Cuturapi; Capazo; Conima; Yanahuaya; San Pedro de Putina Punco | 211304; 210502; 210902; 211208; 211210 |
+| INEI 2020 | Quimbiri | Kimbiri | 080907 |
+| INEI 2022 | Kimpirushiato | Kumpirushiato | 080915 |
+| INEI 2022 | Tintay Punco | Tintay Puncu | 090718 |
+| INEI 2020 | Nazca | Nasca | 110301 |
+| INEI 2020 | San Marcos (Cajamarca) | Pedro Gálvez | 061001 |
 
-Values that look wrong are kept as published and flagged in the `note` column:
+Values that look wrong in the sources are kept as published and flagged:
 
-```{r notes}
-subset(inei1999_districts, !is.na(note),
-       c(inei, district_1999, instrument_number, date_text, note))
+- INEI 1999: Veintisiete de Noviembre (Huaral) has Law 17702 with a 1957 date (probably Law 12702).
+- INEI 2020: Datem del Marañón appears with Law 228593 in the province table and Law 28593 in the district table.
+- INEI 2020: two origin districts cannot be matched: "Acobamba" (Chincheros) and "Camilaca" (Azángaro). Camilaca is a district of Candarave, Tacna.
+- INEI 2020: one origin row gives "Huaylas" as the department of Huaylas (Áncash).
+
+# Step 3: presence in each census
+
+A unit is coded as present in a census when it had been created before the census date: 12/07/1981, 11/07/1993, 21/10/2007 or 22/10/2017. Units not listed as created between 1981 and 2025 existed before 1981. A district created in a census year with no exact date (1981 or 1993) is coded as created after that census.
+
+This rule reproduces exactly INEI's national counts of provinces and districts at every census. It also reproduces the counts at 31/12/2021 (INEI 2022), nationally and in every department. The build script stops if any of these checks fails.
+
+```{r national}
+check <- data.frame(
+  census = c(1981, 1993, 2007, 2017),
+  provinces_pkg = sapply(c(1981, 1993, 2007, 2017), function(y) sum(provinces[[paste0("census_", y)]])),
+  districts_pkg = sapply(c(1981, 1993, 2007, 2017), function(y) sum(districts[[paste0("census_", y)]])))
+nat <- subset(division_counts, level == "national" & census_year %in% check$census)
+check$provinces_inei <- nat$n_provinces
+check$districts_inei <- nat$n_districts
+check
 ```
 
-The original page also has encoding errors (e.g. `CAÃ‘ETE`), which `fix_mojibake()` corrects.
+At 31/12/2021 the agreement also holds department by department:
 
-## Districts by period of creation (Lima)
-
-```{r periods}
-lima <- subset(districts, department == "LIMA")
-period <- with(lima, ifelse(independence_era, "Independence era",
-               ifelse(created_date < as.Date("1900-01-01"), "1821-1899",
-               ifelse(created_date < as.Date("1950-01-01"), "1900-1949",
-               ifelse(created_date < as.Date("1981-07-12"), "1950-1981 census",
-                      "After the 1981 census")))))
-table(period)
+```{r y2021}
+d21 <- subset(division_counts, date == as.Date("2021-12-31") & level == "department")
+d21$dist_pkg <- sapply(d21$inei, function(d) sum(substr(districts$inei, 1, 2) == substr(d, 1, 2) &
+                                                 districts$created_year %in% c(NA, 1800:2021)))
+all(d21$n_districts == d21$dist_pkg)
 ```
 
-The following districts were created after the 1981 Census. Their creation dates mean they could not have been enumerated in it, which Step 3 will check against the census lists:
+At census dates, the department counts differ from INEI's in a few department-years:
 
-```{r post1981}
-subset(lima, created_date >= as.Date("1981-07-12"),
-       c(inei, province, district, legal_instrument, created_date))
+```{r by_dept}
+dc <- subset(division_counts, level == "department" & census_year %in% c(1981, 1993, 2007, 2017))
+dc$prov_pkg <- mapply(function(d, y) sum(substr(provinces$inei, 1, 2) == substr(d, 1, 2) &
+                                         provinces[[paste0("census_", y)]] == 1), dc$inei, dc$census_year)
+dc$dist_pkg <- mapply(function(d, y) sum(substr(districts$inei, 1, 2) == substr(d, 1, 2) &
+                                         districts[[paste0("census_", y)]] == 1), dc$inei, dc$census_year)
+subset(as.data.frame(dc), n_provinces != prov_pkg | n_districts != dist_pkg,
+       c(department, census_year, n_provinces, prov_pkg, n_districts, dist_pkg))
 ```
+
+The differences cancel out across departments and come from two causes:
+
+- **Units that later moved to another department.** The package counts each unit in its 2025 department. For example, the province of Ucayali and its six districts belonged to the department of Ucayali in 1981 and are in Loreto today.
+- **An inconsistency in INEI (2020) itself.** For 2007 the department table sums to 1,834 districts, while the national table reports 1,833 (Amazonas: 84 against 83). The difference is the district of Bagua, which the district table lists under 2008.
+
+**Interpretation.** `census_YYYY` refers to the unit as identified in 2025. A district that was later split still counts as present in earlier censuses, but with a larger territory; `inei_district_origins` identifies those parent districts. Units abolished before 2025 are not in the frame.
 
 # Pending
 
-1. Add the `dis-*.htm` tables for the other 24 departments (the parser already accepts them).
-2. Creation dates for districts created between 1999 and 2025, and for provinces and departments.
-3. Presence in the 2017 and 2007 censuses from INEI's UBIGEO lists.
-4. Presence in the 1993 and 1981 censuses, including a crosswalk of old codes.
+1. Add the INEI 1999 tables (`dis-*.htm`) for the other 24 departments, so that districts existing before 1981 also get their creation dates.
+2. Creation dates for provinces created before 1981 and for departments.
+3. Check presence against the UBIGEO lists of each census (2017, 2007, 1993, 1981) and build a crosswalk of codes that changed.
 
 # References
 
+Congreso de la República (2025). *Leyes de creación de distritos*. Lima: Área de Estadística Parlamentaria. <https://www.congreso.gob.pe/Docs/DGP/GestionInformacionEstadistica/files/publicaciones-25/leyes-declarativas-creaci%C3%93n-distritos.pdf>
+
 Instituto Nacional de Estadística e Informática (1999). *Perú: Directorio Nacional de Municipalidades Provinciales y Distritales 1999*. Lima: INEI. <https://proyectos.inei.gob.pe/web/biblioineipub/bancopub/Est/Lib0362/indice.htm>
 
+Instituto Nacional de Estadística e Informática (2020). *Perú: Proyecciones de Población por Departamento, Provincia y Distrito, 2018 - 2020*. Boletín Especial Nº 26. Lima: INEI. <https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1715/libro.pdf>
+
+Instituto Nacional de Estadística e Informática (2022). *Perú: Proyecciones de Población Total según Departamento, Provincia y Distrito, 2018 – 2022*. Boletín Especial Nº 27. Lima: INEI. <https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1860/libro.pdf>
+
 Instituto Nacional de Estadística e Informática (2025). *Censos Nacionales 2025: listado de ubigeos*. Lima: INEI.
+
+Jurado Nacional de Elecciones (2021). *Resolución N.° 0913-2021-JNE*, 22 de noviembre de 2021. Lima: JNE. <https://portal.jne.gob.pe/portal_documentos/files/72803f45-044d-4c92-841b-6b2dbe8efc0a.pdf>

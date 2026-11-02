@@ -1,0 +1,19 @@
+n,year,law_number,district,province,department,origin_district,origin_province,origin_department
+195,2020,31092,Lambras,Tayacaja,Huancavelica,Huachocolpa,Tayacaja,Huancavelica
+195,2020,31092,Lambras,Tayacaja,Huancavelica,Surcubamba,,
+196,2021,31132,Cochabamba,Tayacaja,Huancavelica,Tintay Punco,Tayacaja,Huancavelica
+197,2021,31128,Santa Lucía,Tocache,San Martín,Tocache,Tocache,San Martín
+197,2021,31128,Santa Lucía,Tocache,San Martín,Uchiza,Tocache,San Martín
+198,2021,31130,Unión Progreso,La Mar,Ayacucho,Anco,La Mar,Ayacucho
+199,2021,31135,Río Magdalena,La Mar,Ayacucho,Samugari,La Mar,Ayacucho
+200,2021,31137,Ninabamba,La Mar,Ayacucho,San Miguel,La Mar,Ayacucho
+201,2021,31138,Patibamba,La Mar,Ayacucho,San Miguel,La Mar,Ayacucho
+202,2021,31134,Putis,Huanta,Ayacucho,Santillana,Huanta,Ayacucho
+203,2021,31133,Huipoca,Padre Abad,Ucayali,Padre Abad,Padre Abad,Ucayali
+204,2021,31141,Boquerón,Padre Abad,Ucayali,Padre Abad,Padre Abad,Ucayali
+205,2021,31142,Kimpirushiato,La Convención,Cusco,Echarate,La Convención,Cusco
+206,2021,31186,Ahuayro,Chincheros,Apurímac,Huaccana,Chincheros,Apurímac
+207,2021,31162,Cielo Punco,La Convención,Cusco,Kimbiri,La Convención,Cusco
+208,2021,31163,Manitea,La Convención,Cusco,Kimbiri,La Convención,Cusco
+209,2021,31197,Unión Asháninka,La Convención,Cusco,Pichari,La Convención,Cusco
+210,2021,31216,San Antonio,Mariscal Nieto,Moquegua,Moquegua,Mariscal Nieto,Moquegua

@@ -5,21 +5,28 @@
 \alias{provinces}
 \title{Provinces of Peru (Census 2025)}
 \format{
-A tibble with 196 rows and 13 variables:
+A tibble with 196 rows and 14 variables:
 \describe{
 \item{inei}{UBIGEO (INEI, Census 2025), 6-character string}
 \item{department}{Name of the department}
 \item{province}{Name of the province}
-\item{created_date}{Date of creation (\code{Date})}
-\item{legal_instrument}{Type and number of the legal instrument of creation}
-\item{independence_era}{\code{TRUE} if the source dates the unit to the Independence era}
-\item{creation_source}{Source of the creation data}
-\item{note}{Warnings about the data}
-\item{census_1981,census_1993,census_2007,census_2017,census_2025}{1 if the unit was enumerated in that census, 0 if not, \code{NA} if not yet determined}
+\item{created_date}{Date of creation (\code{Date}). Law date for INEI 1999;
+publication date for INEI 2020 provinces; date listed by JNE 2021 /
+Congreso 2025. \code{NA} when only the year is known.}
+\item{created_year}{Year of creation}
+\item{legal_instrument}{Type and number of the legal instrument of creation (e.g. \code{"LEY 15246"})}
+\item{independence_era}{\code{TRUE} if the source dates the unit to the Independence era (no instrument of creation)}
+\item{creation_source}{Source(s) of the creation data: \code{"INEI 1999"}, \code{"INEI 2020"}, \code{"INEI 2022"}, \code{"JNE 2021"}, \code{"Congreso 2025"}}
+\item{note}{Warnings about the data (possible errors in the source)}
+\item{census_1981,census_1993,census_2007,census_2017,census_2025}{1 if the unit
+existed at the census date, 0 if it was created afterwards. See Details.}
 }
 }
 \source{
-INEI, list of UBIGEO codes of the 2025 Census.
+INEI, list of UBIGEO codes of the 2025 Census; INEI (1999), see
+\link{inei1999_districts}; INEI (2020) and INEI (2022), see \link{division_counts};
+JNE (2021) and Congreso de la República (2025), see
+\link{districts_created_2020_2025}.
 }
 \usage{
 provinces
@@ -27,5 +34,17 @@ provinces
 \description{
 Provinces in the 2025 Census, identified by their INEI UBIGEO code, with
 their creation data and presence in each census.
+}
+\details{
+\strong{Census presence.} A unit is coded as present in a census when it had
+been created before the census date (12/07/1981, 11/07/1993, 21/10/2007,
+22/10/2017). Units not listed as created between 1981 and 2025 in the
+sources existed before the 1981 Census. The coding reproduces exactly the
+national counts of provinces and districts published by INEI (2020) for each
+census, and the national and department counts at 31/12/2021 published by
+INEI (2022). Presence refers to the unit as identified in 2025: units that were
+split, merged or moved between departments keep their 2025 identity, and
+units abolished before 2025 are not included. See
+\code{vignette("construction", package = "ubigeocensos")}.
 }
 \keyword{datasets}

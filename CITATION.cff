@@ -18,3 +18,41 @@ keywords:
   - districts
   - territorial units
   - R
+references:
+  - type: report
+    title: "Perú: Proyecciones de Población por Departamento, Provincia y Distrito, 2018 - 2020"
+    collection-title: "Boletín Especial Nº 26"
+    authors:
+      - name: "Instituto Nacional de Estadística e Informática"
+    year: 2020
+    url: "https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1715/libro.pdf"
+  - type: report
+    title: "Perú: Proyecciones de Población Total según Departamento, Provincia y Distrito, 2018 - 2022"
+    collection-title: "Boletín Especial Nº 27"
+    authors:
+      - name: "Instituto Nacional de Estadística e Informática"
+    year: 2022
+    url: "https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1860/libro.pdf"
+  - type: report
+    title: "Perú: Directorio Nacional de Municipalidades Provinciales y Distritales 1999"
+    authors:
+      - name: "Instituto Nacional de Estadística e Informática"
+    year: 1999
+    url: "https://proyectos.inei.gob.pe/web/biblioineipub/bancopub/Est/Lib0362/indice.htm"
+  - type: data
+    title: "Censos Nacionales 2025: listado de ubigeos"
+    authors:
+      - name: "Instituto Nacional de Estadística e Informática"
+    year: 2025
+  - type: generic
+    title: "Resolución N.° 0913-2021-JNE"
+    authors:
+      - name: "Jurado Nacional de Elecciones"
+    year: 2021
+    url: "https://portal.jne.gob.pe/portal_documentos/files/72803f45-044d-4c92-841b-6b2dbe8efc0a.pdf"
+  - type: report
+    title: "Leyes de creación de distritos"
+    authors:
+      - name: "Congreso de la República del Perú"
+    year: 2025
+    url: "https://www.congreso.gob.pe/Docs/DGP/GestionInformacionEstadistica/files/publicaciones-25/leyes-declarativas-creaci%C3%93n-distritos.pdf"

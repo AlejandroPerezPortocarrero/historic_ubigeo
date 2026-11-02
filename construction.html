@@ -359,67 +359,187 @@ which runs the scripts in <code>data-raw/</code> in order.</p>
 <h1>Sources</h1>
 <table>
 <colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th>Source</th>
-<th>Use</th>
-<th>File</th>
+<th>Short name</th>
+<th>Reference</th>
+<th>Used for</th>
+<th>File in <code>data-raw/</code></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
+<td>INEI 2025</td>
 <td>INEI. List of UBIGEO codes, 2025 Census</td>
-<td>Units in force in 2025</td>
-<td><code>data-raw/ubigeo_censo2025.xlsx</code></td>
+<td>Frame of units</td>
+<td><code>ubigeo_censo2025.xlsx</code></td>
 </tr>
 <tr class="even">
-<td>INEI (1999). <em>Perú: Directorio Nacional de Municipalidades
-Provinciales y Distritales 1999</em>, table X.3</td>
-<td>Creation date and legal instrument of the districts that existed in
-1999</td>
-<td><code>data-raw/inei_lib0362/dis-*.txt</code></td>
+<td>INEI 1999</td>
+<td>INEI (1999), <em>Directorio Nacional de Municipalidades Provinciales
+y Distritales 1999</em>, table X.3</td>
+<td>Exact date and instrument of creation of districts existing in 1999
+(Lima so far)</td>
+<td><code>inei_lib0362/dis-*.txt</code></td>
+</tr>
+<tr class="odd">
+<td>INEI 2020</td>
+<td>INEI (2020), <em>Proyecciones de Población por Departamento,
+Provincia y Distrito, 2018 - 2020</em>, Boletín Especial Nº 26, chapter
+2</td>
+<td>Counts at each census; provinces and districts created 1981–2019 and
+their territorial origin</td>
+<td><code>inei2020_be26/cap02_division_politica_2019.pdf</code></td>
+</tr>
+<tr class="even">
+<td>INEI 2022</td>
+<td>INEI (2022), <em>Proyecciones de Población Total según Departamento,
+Provincia y Distrito, 2018 – 2022</em>, Boletín Especial Nº 27, Anexo
+2</td>
+<td>Update of INEI 2020 to 31/12/2021: counts at 2021, the 16 districts
+created 2020–2021 and their territorial origin</td>
+<td><code>inei2022_be27/</code> (page images and transcriptions)</td>
+</tr>
+<tr class="odd">
+<td>JNE 2021</td>
+<td>Jurado Nacional de Elecciones, Resolución N.° 0913-2021-JNE</td>
+<td>Exact dates of the 16 districts created 2020–2021</td>
+<td><code>post2019/districts_created_2020_2025.csv</code></td>
+</tr>
+<tr class="even">
+<td>Congreso 2025</td>
+<td>Congreso de la República, <em>Leyes de creación de
+distritos</em></td>
+<td>Alto Trujillo (2022) and Santa Rosa de Loreto (2025)</td>
+<td><code>post2019/districts_created_2020_2025.csv</code></td>
 </tr>
 </tbody>
 </table>
 <div id="inei-1999-directorio-nacional-de-municipalidades" class="section level2">
 <h2>INEI (1999): Directorio Nacional de Municipalidades</h2>
-<blockquote>
-<p>Instituto Nacional de Estadística e Informática (1999). <em>Perú:
-Directorio Nacional de Municipalidades Provinciales y Distritales
-1999</em>. Lima: INEI. <a href="https://proyectos.inei.gob.pe/web/biblioineipub/bancopub/Est/Lib0362/indice.htm" class="uri">https://proyectos.inei.gob.pe/web/biblioineipub/bancopub/Est/Lib0362/indice.htm</a></p>
-</blockquote>
-<p>For each department the publication has a table titled
+<p>For each department, the 1999 directory has a table titled
 <em>“Dispositivo legal de creación, población total, superficie,
 densidad poblacional y población electoral de los distritos: 1999”</em>.
 For Lima it is table 15.3 (<a href="https://proyectos.inei.gob.pe/web/biblioineipub/bancopub/Est/Lib0362/dis-lima.htm" class="uri">https://proyectos.inei.gob.pe/web/biblioineipub/bancopub/Est/Lib0362/dis-lima.htm</a>),
 and the other departments follow the pattern
-<code>dis-&lt;code&gt;.htm</code> (<code>dis-amaz.htm</code>,
-<code>dis-anca.htm</code>, …, <code>dis-ucay.htm</code>).</p>
-<p>For each district, the table reports:</p>
+<code>dis-&lt;code&gt;.htm</code> (<code>dis-amaz.htm</code>, …,
+<code>dis-ucay.htm</code>). For each district the table gives the type,
+number and date of the legal instrument, or <code>EPOCA INDEP.</code>
+for districts dating from the Independence era. It also gives population
+(1998), surface, density and electoral population (1999). It covers only
+districts that existed in 1999.</p>
+</div>
+<div id="inei-2020-proyecciones-de-población-20182020-chapter-2" class="section level2">
+<h2>INEI (2020): Proyecciones de Población 2018–2020, chapter 2</h2>
+<p>Chapter 2, <em>“División política y administrativa al 31 de diciembre
+del 2019”</em>, contains:</p>
+<ol style="list-style-type: decimal">
+<li>the number of departments, provinces and districts at each census
+date, 1940–2017, and at 31/12/2019;</li>
+<li>the number of provinces and districts by department at each
+census;</li>
+<li>the provinces created between 12/07/1981 and 31/12/2019, with law
+number, publication date and UBIGEO;</li>
+<li>the districts created 1981–2019, with law number, year and
+<strong>territorial origin</strong> (the districts each one was carved
+from);</li>
+<li>a map of the districts created 1981–2019.</li>
+</ol>
+<p>Table 4 is read from the word coordinates of the PDF, because its
+columns are right-aligned and some cells wrap over two lines. The few
+wrapped cells are fixed by hand in
+<code>03_inei2020_division.R</code>.</p>
+</div>
+<div id="inei-2022-proyecciones-de-población-total-20182022-anexo-2" class="section level2">
+<h2>INEI (2022): Proyecciones de Población Total 2018–2022, Anexo 2</h2>
+<p>Anexo 2 of Boletín Especial Nº 27, <em>“División política y
+administrativa al 31 de diciembre de 2021”</em>, updates the four tables
+above to 31/12/2021:</p>
 <ul>
-<li>the type of legal instrument (Ley, Decreto, Decreto Ley, Ley
-Regional), its number and its date;</li>
-<li><code>EPOCA INDEP.</code> for districts that date from the
-Independence era and have no identified instrument of creation;</li>
-<li>total population at 30/06/1998, surface (km²), density and electoral
-population at 04/01/1999.</li>
+<li>Cuadros 1 and 2 add the counts at 31/12/2021: 196 provinces and
+1,890 districts.</li>
+<li>Cuadro 3 lists the same 43 provinces, because none were created in
+2020–2021.</li>
+<li>Cuadro 4 adds rows 195–210, the 16 districts created in 2020–2021,
+with their law and territorial origin. It also renumbers the earlier
+rows consecutively, since INEI (2020) had skipped numbers 161–169.</li>
 </ul>
-<p><strong>Scope.</strong> The table covers only districts that existed
-in 1999. Districts created afterwards need another source, such as the
-laws published in <em>El Peruano</em> or the PCM’s territorial
-demarcation records.</p>
+<p>These tables were provided as page images, which are kept in
+<code>data-raw/inei2022_be27/images/</code>. Cuadros 1 and 2 and the new
+rows of Cuadro 4 were transcribed into CSV files in the same folder.
+Every transcribed figure that INEI (2020) also reports is checked
+against the values parsed from the INEI (2020) PDF, and the build stops
+if any differs. All of them agree.</p>
+<p>The two editions are combined in <code>division_counts</code>,
+<code>inei_provinces_created</code>, <code>inei_districts_created</code>
+and <code>inei_district_origins</code>. A <code>source</code> column
+says which edition(s) report each row.</p>
+</div>
+<div id="districts-created-after-2019" class="section level2">
+<h2>Districts created after 2019</h2>
+<p>The 2025 frame has 1,892 districts, against 1,874 at 31/12/2019 (INEI
+2020) and 1,890 at 31/12/2021 (INEI 2022). Of the 18 districts created
+in between:</p>
+<ul>
+<li>the 16 created in 2020–2021 are listed in INEI (2022), with year and
+law. Their exact dates come from JNE Resolución N.° 0913-2021-JNE, and
+the build checks that both sources agree on law and year;</li>
+<li>the two created after 2021, Alto Trujillo (Ley 31644, 2022) and
+Santa Rosa de Loreto (Ley 32403, 2025), come from the Congreso’s list of
+district-creation laws.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>districts_created_2020_2025[, <span class="fu">c</span>(<span class="st">&quot;inei&quot;</span>, <span class="st">&quot;province&quot;</span>, <span class="st">&quot;district&quot;</span>, <span class="st">&quot;law_number&quot;</span>, <span class="st">&quot;date&quot;</span>, <span class="st">&quot;source&quot;</span>)]</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="co">#&gt;      inei                province             district law_number       date</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="co">#&gt; 1  090724                TAYACAJA              LAMBRAS      31092 2020-12-19</span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="co">#&gt; 2  221006                 TOCACHE          SANTA LUCIA      31128 2021-03-04</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="co">#&gt; 3  050512                  LA MAR       UNION PROGRESO      31130 2021-03-05</span></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="co">#&gt; 4  090725                TAYACAJA           COCHABAMBA      31132 2021-03-09</span></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="co">#&gt; 5  250306              PADRE ABAD              HUIPOCA      31133 2021-03-09</span></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="co">#&gt; 6  050413                  HUANTA                PUTIS      31134 2021-03-09</span></span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="co">#&gt; 7  050513                  LA MAR        RIO MAGDALENA      31135 2021-03-09</span></span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="co">#&gt; 8  050514                  LA MAR            NINABAMBA      31137 2021-03-16</span></span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a><span class="co">#&gt; 9  050515                  LA MAR            PATIBAMBA      31138 2021-03-16</span></span>
+<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a><span class="co">#&gt; 10 250307              PADRE ABAD             BOQUERON      31141 2021-03-18</span></span>
+<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="co">#&gt; 11 080915           LA CONVENCION        KUMPIRUSHIATO      31142 2021-03-18</span></span>
+<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a><span class="co">#&gt; 12 080916           LA CONVENCION          CIELO PUNCO      31162 2021-04-07</span></span>
+<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a><span class="co">#&gt; 13 080917           LA CONVENCION              MANITEA      31163 2021-04-07</span></span>
+<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a><span class="co">#&gt; 14 030612              CHINCHEROS              AHUAYRO      31186 2021-05-02</span></span>
+<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a><span class="co">#&gt; 15 080918           LA CONVENCION      UNION ASHANINKA      31197 2021-05-18</span></span>
+<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a><span class="co">#&gt; 16 180107          MARISCAL NIETO          SAN ANTONIO      31216 2021-06-15</span></span>
+<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a><span class="co">#&gt; 17 130112                TRUJILLO        ALTO TRUJILLO      31644 2022-12-15</span></span>
+<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a><span class="co">#&gt; 18 160405 MARISCAL RAMON CASTILLA SANTA ROSA DE LORETO      32403 2025-07-03</span></span>
+<span id="cb1-21"><a href="#cb1-21" tabindex="-1"></a><span class="co">#&gt;           source</span></span>
+<span id="cb1-22"><a href="#cb1-22" tabindex="-1"></a><span class="co">#&gt; 1       JNE 2021</span></span>
+<span id="cb1-23"><a href="#cb1-23" tabindex="-1"></a><span class="co">#&gt; 2       JNE 2021</span></span>
+<span id="cb1-24"><a href="#cb1-24" tabindex="-1"></a><span class="co">#&gt; 3       JNE 2021</span></span>
+<span id="cb1-25"><a href="#cb1-25" tabindex="-1"></a><span class="co">#&gt; 4       JNE 2021</span></span>
+<span id="cb1-26"><a href="#cb1-26" tabindex="-1"></a><span class="co">#&gt; 5       JNE 2021</span></span>
+<span id="cb1-27"><a href="#cb1-27" tabindex="-1"></a><span class="co">#&gt; 6       JNE 2021</span></span>
+<span id="cb1-28"><a href="#cb1-28" tabindex="-1"></a><span class="co">#&gt; 7       JNE 2021</span></span>
+<span id="cb1-29"><a href="#cb1-29" tabindex="-1"></a><span class="co">#&gt; 8       JNE 2021</span></span>
+<span id="cb1-30"><a href="#cb1-30" tabindex="-1"></a><span class="co">#&gt; 9       JNE 2021</span></span>
+<span id="cb1-31"><a href="#cb1-31" tabindex="-1"></a><span class="co">#&gt; 10      JNE 2021</span></span>
+<span id="cb1-32"><a href="#cb1-32" tabindex="-1"></a><span class="co">#&gt; 11      JNE 2021</span></span>
+<span id="cb1-33"><a href="#cb1-33" tabindex="-1"></a><span class="co">#&gt; 12      JNE 2021</span></span>
+<span id="cb1-34"><a href="#cb1-34" tabindex="-1"></a><span class="co">#&gt; 13      JNE 2021</span></span>
+<span id="cb1-35"><a href="#cb1-35" tabindex="-1"></a><span class="co">#&gt; 14      JNE 2021</span></span>
+<span id="cb1-36"><a href="#cb1-36" tabindex="-1"></a><span class="co">#&gt; 15      JNE 2021</span></span>
+<span id="cb1-37"><a href="#cb1-37" tabindex="-1"></a><span class="co">#&gt; 16      JNE 2021</span></span>
+<span id="cb1-38"><a href="#cb1-38" tabindex="-1"></a><span class="co">#&gt; 17 Congreso 2025</span></span>
+<span id="cb1-39"><a href="#cb1-39" tabindex="-1"></a><span class="co">#&gt; 18 Congreso 2025</span></span></code></pre></div>
 </div>
 </div>
 <div id="step-1-units-in-the-2025-census" class="section level1">
 <h1>Step 1: units in the 2025 Census</h1>
 <p>Script: <code>data-raw/01_units_2025.R</code>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">sapply</span>(<span class="fu">list</span>(<span class="at">departments =</span> departments, <span class="at">provinces =</span> provinces, <span class="at">districts =</span> districts), nrow)</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="co">#&gt; departments   provinces   districts </span></span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="co">#&gt;          25         196        1892</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">sapply</span>(<span class="fu">list</span>(<span class="at">departments =</span> departments, <span class="at">provinces =</span> provinces, <span class="at">districts =</span> districts), nrow)</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="co">#&gt; departments   provinces   districts </span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co">#&gt;          25         196        1892</span></span></code></pre></div>
 <p>Checks run by the script:</p>
 <ul>
 <li>UBIGEO codes are unique;</li>
@@ -428,119 +548,230 @@ department;</li>
 <li>no province is left without districts.</li>
 </ul>
 </div>
-<div id="step-2-creation-dates-inei-1999" class="section level1">
-<h1>Step 2: creation dates (INEI 1999)</h1>
-<p>Script: <code>data-raw/02_inei1999_creation.R</code>. The script
-reads the text copied from each <code>dis-&lt;code&gt;.htm</code>, turns
-it into a table and matches it to the 2025 UBIGEO by department,
-province and normalised name (upper case, no accents, keeping the Ñ). It
-stops with an error if any district is left unmatched.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">do.call</span>(rbind, <span class="fu">lapply</span>(<span class="fu">split</span>(inei1999_districts, inei1999_districts<span class="sc">$</span>dept), <span class="cf">function</span>(d)</span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">dept =</span> d<span class="sc">$</span>dept[<span class="dv">1</span>], <span class="at">districts =</span> <span class="fu">nrow</span>(d), <span class="at">matched =</span> <span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(d<span class="sc">$</span>inei)),</span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>             <span class="at">independence_era =</span> <span class="fu">sum</span>(d<span class="sc">$</span>independence_era),</span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>             <span class="at">with_date =</span> <span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(d<span class="sc">$</span>created_date)))))</span>
-<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co">#&gt;    dept districts matched independence_era with_date</span></span>
-<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="co">#&gt; 15   15       171     171               52       119</span></span></code></pre></div>
-<div id="name-equivalences" class="section level2">
-<h2>Name equivalences</h2>
-<p>Some districts are named differently in 1999 and 2025. The
-equivalences are coded in <code>name_equivalences</code>:</p>
+<div id="step-2-creation-dates-and-instruments" class="section level1">
+<h1>Step 2: creation dates and instruments</h1>
+<p>Creation data come from four sources, applied in this order:</p>
+<ol style="list-style-type: decimal">
+<li><strong>INEI 1999</strong> gives the exact date and instrument for
+each district that existed in 1999. So far this is Lima, matched by
+department, province and normalised name.</li>
+<li><strong>INEI 2020 / INEI 2022</strong> give the publication date and
+law for the 43 provinces created 1981–2021, and the year and law for the
+210 districts created 1981–2021. When INEI 1999 also has the district,
+its exact date is kept and the law numbers are checked against each
+other.</li>
+<li><strong>JNE 2021 / Congreso 2025</strong> give the exact date and
+law for the 18 districts created 2020–2025.</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">table</span>(districts<span class="sc">$</span>creation_source, <span class="at">useNA =</span> <span class="st">&quot;ifany&quot;</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co">#&gt;                   Congreso 2025                       INEI 1999 </span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co">#&gt;                               2                             166 </span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co">#&gt; INEI 1999; INEI 2020; INEI 2022            INEI 2020; INEI 2022 </span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="co">#&gt;                               5                             189 </span></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="co">#&gt;             INEI 2022; JNE 2021                            &lt;NA&gt; </span></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="co">#&gt;                              16                            1514</span></span></code></pre></div>
+<p>Districts with no creation source (<code>NA</code>) existed before
+the 1981 Census but their creation date is not yet in the package.
+Adding the INEI 1999 tables for the other 24 departments will fill most
+of them.</p>
+<div id="name-equivalences-and-source-issues" class="section level2">
+<h2>Name equivalences and source issues</h2>
+<p>Matching names across sources needs a few equivalences, which are
+coded in the scripts:</p>
 <table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
 <thead>
 <tr class="header">
-<th>Dept.</th>
-<th>Province</th>
-<th>Name 1999</th>
-<th>Name 2025</th>
+<th>Source</th>
+<th>Name in source</th>
+<th>Name in 2025</th>
 <th>UBIGEO 2025</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Lima</td>
-<td>Lima</td>
-<td>Magdalena Vieja</td>
+<td>INEI 1999</td>
+<td>Magdalena Vieja (Lima)</td>
 <td>Pueblo Libre</td>
 <td>150121</td>
 </tr>
 <tr class="even">
-<td>Lima</td>
-<td>Huarochirí</td>
-<td>Laraos</td>
+<td>INEI 1999</td>
+<td>Laraos (Huarochirí)</td>
 <td>San Pedro de Laraos</td>
 <td>150712</td>
 </tr>
 <tr class="odd">
-<td>Lima</td>
-<td>Yauyos</td>
-<td>Ayauca</td>
+<td>INEI 1999</td>
+<td>Ayauca (Yauyos)</td>
 <td>Allauca</td>
 <td>151003</td>
 </tr>
+<tr class="even">
+<td>INEI 2020</td>
+<td>Campo Verde; Callaria; Antonio Raymondi</td>
+<td>Campoverde; Callería; Raimondi</td>
+<td>250102; 250101; 250201</td>
+</tr>
+<tr class="odd">
+<td>INEI 2020</td>
+<td>Codo de Pozuzo; Quisqui</td>
+<td>Codo del Pozuzo; Quisqui (Kichki)</td>
+<td>100902; 100106</td>
+</tr>
+<tr class="even">
+<td>INEI 2020</td>
+<td>Cutarapi; Capaso; Conina; Yanahuara; San Pedro de Putina Puncu</td>
+<td>Cuturapi; Capazo; Conima; Yanahuaya; San Pedro de Putina Punco</td>
+<td>211304; 210502; 210902; 211208; 211210</td>
+</tr>
+<tr class="odd">
+<td>INEI 2020</td>
+<td>Quimbiri</td>
+<td>Kimbiri</td>
+<td>080907</td>
+</tr>
+<tr class="even">
+<td>INEI 2022</td>
+<td>Kimpirushiato</td>
+<td>Kumpirushiato</td>
+<td>080915</td>
+</tr>
+<tr class="odd">
+<td>INEI 2022</td>
+<td>Tintay Punco</td>
+<td>Tintay Puncu</td>
+<td>090718</td>
+</tr>
+<tr class="even">
+<td>INEI 2020</td>
+<td>Nazca</td>
+<td>Nasca</td>
+<td>110301</td>
+</tr>
+<tr class="odd">
+<td>INEI 2020</td>
+<td>San Marcos (Cajamarca)</td>
+<td>Pedro Gálvez</td>
+<td>061001</td>
+</tr>
 </tbody>
 </table>
+<p>Values that look wrong in the sources are kept as published and
+flagged:</p>
+<ul>
+<li>INEI 1999: Veintisiete de Noviembre (Huaral) has Law 17702 with a
+1957 date (probably Law 12702).</li>
+<li>INEI 2020: Datem del Marañón appears with Law 228593 in the province
+table and Law 28593 in the district table.</li>
+<li>INEI 2020: two origin districts cannot be matched: “Acobamba”
+(Chincheros) and “Camilaca” (Azángaro). Camilaca is a district of
+Candarave, Tacna.</li>
+<li>INEI 2020: one origin row gives “Huaylas” as the department of
+Huaylas (Áncash).</li>
+</ul>
 </div>
-<div id="notes-on-the-source" class="section level2">
-<h2>Notes on the source</h2>
-<p>Values that look wrong are kept as published and flagged in the
-<code>note</code> column:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">subset</span>(inei1999_districts, <span class="sc">!</span><span class="fu">is.na</span>(note),</span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>       <span class="fu">c</span>(inei, district_1999, instrument_number, date_text, note))</span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co">#&gt;      inei            district_1999 instrument_number   date_text</span></span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co">#&gt; 88 150612 VEINTISIETE DE NOVIEMBRE             17702 18 ENE 1957</span></span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co">#&gt;                                                                     note</span></span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="co">#&gt; 88 Law number (17702) inconsistent with date (1957); possibly Law 12702.</span></span></code></pre></div>
-<p>The original page also has encoding errors
-(e.g. <code>CAÃ‘ETE</code>), which <code>fix_mojibake()</code>
-corrects.</p>
 </div>
-<div id="districts-by-period-of-creation-lima" class="section level2">
-<h2>Districts by period of creation (Lima)</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>lima <span class="ot">&lt;-</span> <span class="fu">subset</span>(districts, department <span class="sc">==</span> <span class="st">&quot;LIMA&quot;</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>period <span class="ot">&lt;-</span> <span class="fu">with</span>(lima, <span class="fu">ifelse</span>(independence_era, <span class="st">&quot;Independence era&quot;</span>,</span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>               <span class="fu">ifelse</span>(created_date <span class="sc">&lt;</span> <span class="fu">as.Date</span>(<span class="st">&quot;1900-01-01&quot;</span>), <span class="st">&quot;1821-1899&quot;</span>,</span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>               <span class="fu">ifelse</span>(created_date <span class="sc">&lt;</span> <span class="fu">as.Date</span>(<span class="st">&quot;1950-01-01&quot;</span>), <span class="st">&quot;1900-1949&quot;</span>,</span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>               <span class="fu">ifelse</span>(created_date <span class="sc">&lt;</span> <span class="fu">as.Date</span>(<span class="st">&quot;1981-07-12&quot;</span>), <span class="st">&quot;1950-1981 census&quot;</span>,</span>
-<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>                      <span class="st">&quot;After the 1981 census&quot;</span>)))))</span>
-<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="fu">table</span>(period)</span>
-<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co">#&gt; period</span></span>
-<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co">#&gt;             1821-1899             1900-1949      1950-1981 census </span></span>
-<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co">#&gt;                    17                    47                    50 </span></span>
-<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="co">#&gt; After the 1981 census      Independence era </span></span>
-<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="co">#&gt;                     5                    52</span></span></code></pre></div>
-<p>The following districts were created after the 1981 Census. Their
-creation dates mean they could not have been enumerated in it, which
-Step 3 will check against the census lists:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">subset</span>(lima, created_date <span class="sc">&gt;=</span> <span class="fu">as.Date</span>(<span class="st">&quot;1981-07-12&quot;</span>),</span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>       <span class="fu">c</span>(inei, province, district, legal_instrument, created_date))</span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="co">#&gt;        inei province          district legal_instrument created_date</span></span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="co">#&gt; 1310 150117     LIMA        LOS OLIVOS        LEY 25017   1989-04-06</span></span>
-<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="co">#&gt; 1323 150130     LIMA         SAN BORJA        LEY 23604   1983-06-01</span></span>
-<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="co">#&gt; 1330 150137     LIMA       SANTA ANITA        LEY 25116   1989-10-25</span></span>
-<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="co">#&gt; 1335 150142     LIMA VILLA EL SALVADOR        LEY 23605   1983-06-01</span></span>
-<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="co">#&gt; 1439 151008   YAUYOS         CATAHUASI        LEY 24524   1986-06-06</span></span></code></pre></div>
-</div>
+<div id="step-3-presence-in-each-census" class="section level1">
+<h1>Step 3: presence in each census</h1>
+<p>A unit is coded as present in a census when it had been created
+before the census date: 12/07/1981, 11/07/1993, 21/10/2007 or
+22/10/2017. Units not listed as created between 1981 and 2025 existed
+before 1981. A district created in a census year with no exact date
+(1981 or 1993) is coded as created after that census.</p>
+<p>This rule reproduces exactly INEI’s national counts of provinces and
+districts at every census. It also reproduces the counts at 31/12/2021
+(INEI 2022), nationally and in every department. The build script stops
+if any of these checks fails.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>check <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>  <span class="at">census =</span> <span class="fu">c</span>(<span class="dv">1981</span>, <span class="dv">1993</span>, <span class="dv">2007</span>, <span class="dv">2017</span>),</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>  <span class="at">provinces_pkg =</span> <span class="fu">sapply</span>(<span class="fu">c</span>(<span class="dv">1981</span>, <span class="dv">1993</span>, <span class="dv">2007</span>, <span class="dv">2017</span>), <span class="cf">function</span>(y) <span class="fu">sum</span>(provinces[[<span class="fu">paste0</span>(<span class="st">&quot;census_&quot;</span>, y)]])),</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>  <span class="at">districts_pkg =</span> <span class="fu">sapply</span>(<span class="fu">c</span>(<span class="dv">1981</span>, <span class="dv">1993</span>, <span class="dv">2007</span>, <span class="dv">2017</span>), <span class="cf">function</span>(y) <span class="fu">sum</span>(districts[[<span class="fu">paste0</span>(<span class="st">&quot;census_&quot;</span>, y)]])))</span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>nat <span class="ot">&lt;-</span> <span class="fu">subset</span>(division_counts, level <span class="sc">==</span> <span class="st">&quot;national&quot;</span> <span class="sc">&amp;</span> census_year <span class="sc">%in%</span> check<span class="sc">$</span>census)</span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>check<span class="sc">$</span>provinces_inei <span class="ot">&lt;-</span> nat<span class="sc">$</span>n_provinces</span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a>check<span class="sc">$</span>districts_inei <span class="ot">&lt;-</span> nat<span class="sc">$</span>n_districts</span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a>check</span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co">#&gt;   census provinces_pkg districts_pkg provinces_inei districts_inei</span></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co">#&gt; 1   1981           153          1680            153           1680</span></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="co">#&gt; 2   1993           188          1793            188           1793</span></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="co">#&gt; 3   2007           195          1833            195           1833</span></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="co">#&gt; 4   2017           196          1874            196           1874</span></span></code></pre></div>
+<p>At 31/12/2021 the agreement also holds department by department:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>d21 <span class="ot">&lt;-</span> <span class="fu">subset</span>(division_counts, date <span class="sc">==</span> <span class="fu">as.Date</span>(<span class="st">&quot;2021-12-31&quot;</span>) <span class="sc">&amp;</span> level <span class="sc">==</span> <span class="st">&quot;department&quot;</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>d21<span class="sc">$</span>dist_pkg <span class="ot">&lt;-</span> <span class="fu">sapply</span>(d21<span class="sc">$</span>inei, <span class="cf">function</span>(d) <span class="fu">sum</span>(<span class="fu">substr</span>(districts<span class="sc">$</span>inei, <span class="dv">1</span>, <span class="dv">2</span>) <span class="sc">==</span> <span class="fu">substr</span>(d, <span class="dv">1</span>, <span class="dv">2</span>) <span class="sc">&amp;</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>                                                 districts<span class="sc">$</span>created_year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="dv">1800</span><span class="sc">:</span><span class="dv">2021</span>)))</span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="fu">all</span>(d21<span class="sc">$</span>n_districts <span class="sc">==</span> d21<span class="sc">$</span>dist_pkg)</span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+<p>At census dates, the department counts differ from INEI’s in a few
+department-years:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>dc <span class="ot">&lt;-</span> <span class="fu">subset</span>(division_counts, level <span class="sc">==</span> <span class="st">&quot;department&quot;</span> <span class="sc">&amp;</span> census_year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1981</span>, <span class="dv">1993</span>, <span class="dv">2007</span>, <span class="dv">2017</span>))</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>dc<span class="sc">$</span>prov_pkg <span class="ot">&lt;-</span> <span class="fu">mapply</span>(<span class="cf">function</span>(d, y) <span class="fu">sum</span>(<span class="fu">substr</span>(provinces<span class="sc">$</span>inei, <span class="dv">1</span>, <span class="dv">2</span>) <span class="sc">==</span> <span class="fu">substr</span>(d, <span class="dv">1</span>, <span class="dv">2</span>) <span class="sc">&amp;</span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>                                         provinces[[<span class="fu">paste0</span>(<span class="st">&quot;census_&quot;</span>, y)]] <span class="sc">==</span> <span class="dv">1</span>), dc<span class="sc">$</span>inei, dc<span class="sc">$</span>census_year)</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>dc<span class="sc">$</span>dist_pkg <span class="ot">&lt;-</span> <span class="fu">mapply</span>(<span class="cf">function</span>(d, y) <span class="fu">sum</span>(<span class="fu">substr</span>(districts<span class="sc">$</span>inei, <span class="dv">1</span>, <span class="dv">2</span>) <span class="sc">==</span> <span class="fu">substr</span>(d, <span class="dv">1</span>, <span class="dv">2</span>) <span class="sc">&amp;</span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>                                         districts[[<span class="fu">paste0</span>(<span class="st">&quot;census_&quot;</span>, y)]] <span class="sc">==</span> <span class="dv">1</span>), dc<span class="sc">$</span>inei, dc<span class="sc">$</span>census_year)</span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="fu">subset</span>(<span class="fu">as.data.frame</span>(dc), n_provinces <span class="sc">!=</span> prov_pkg <span class="sc">|</span> n_districts <span class="sc">!=</span> dist_pkg,</span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>       <span class="fu">c</span>(department, census_year, n_provinces, prov_pkg, n_districts, dist_pkg))</span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a><span class="co">#&gt;      department census_year n_provinces prov_pkg n_districts dist_pkg</span></span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a><span class="co">#&gt; 17     Amazonas        2007           7        7          84       83</span></span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a><span class="co">#&gt; 23       Áncash        1981          16       16         154      155</span></span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a><span class="co">#&gt; 59    Cajamarca        1981          11       11         109      107</span></span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a><span class="co">#&gt; 95      Huánuco        1981           7        7          68       67</span></span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a><span class="co">#&gt; 122 La Libertad        1981           7        7          72       74</span></span>
+<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a><span class="co">#&gt; 149      Loreto        1981           5        6          37       43</span></span>
+<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a><span class="co">#&gt; 230     Ucayali        1981           2        1          15        9</span></span></code></pre></div>
+<p>The differences cancel out across departments and come from two
+causes:</p>
+<ul>
+<li><strong>Units that later moved to another department.</strong> The
+package counts each unit in its 2025 department. For example, the
+province of Ucayali and its six districts belonged to the department of
+Ucayali in 1981 and are in Loreto today.</li>
+<li><strong>An inconsistency in INEI (2020) itself.</strong> For 2007
+the department table sums to 1,834 districts, while the national table
+reports 1,833 (Amazonas: 84 against 83). The difference is the district
+of Bagua, which the district table lists under 2008.</li>
+</ul>
+<p><strong>Interpretation.</strong> <code>census_YYYY</code> refers to
+the unit as identified in 2025. A district that was later split still
+counts as present in earlier censuses, but with a larger territory;
+<code>inei_district_origins</code> identifies those parent districts.
+Units abolished before 2025 are not in the frame.</p>
 </div>
 <div id="pending" class="section level1">
 <h1>Pending</h1>
 <ol style="list-style-type: decimal">
-<li>Add the <code>dis-*.htm</code> tables for the other 24 departments
-(the parser already accepts them).</li>
-<li>Creation dates for districts created between 1999 and 2025, and for
-provinces and departments.</li>
-<li>Presence in the 2017 and 2007 censuses from INEI’s UBIGEO
-lists.</li>
-<li>Presence in the 1993 and 1981 censuses, including a crosswalk of old
-codes.</li>
+<li>Add the INEI 1999 tables (<code>dis-*.htm</code>) for the other 24
+departments, so that districts existing before 1981 also get their
+creation dates.</li>
+<li>Creation dates for provinces created before 1981 and for
+departments.</li>
+<li>Check presence against the UBIGEO lists of each census (2017, 2007,
+1993, 1981) and build a crosswalk of codes that changed.</li>
 </ol>
 </div>
 <div id="references" class="section level1">
 <h1>References</h1>
+<p>Congreso de la República (2025). <em>Leyes de creación de
+distritos</em>. Lima: Área de Estadística Parlamentaria. <a href="https://www.congreso.gob.pe/Docs/DGP/GestionInformacionEstadistica/files/publicaciones-25/leyes-declarativas-creaci%C3%93n-distritos.pdf" class="uri">https://www.congreso.gob.pe/Docs/DGP/GestionInformacionEstadistica/files/publicaciones-25/leyes-declarativas-creaci%C3%93n-distritos.pdf</a></p>
 <p>Instituto Nacional de Estadística e Informática (1999). <em>Perú:
 Directorio Nacional de Municipalidades Provinciales y Distritales
 1999</em>. Lima: INEI. <a href="https://proyectos.inei.gob.pe/web/biblioineipub/bancopub/Est/Lib0362/indice.htm" class="uri">https://proyectos.inei.gob.pe/web/biblioineipub/bancopub/Est/Lib0362/indice.htm</a></p>
+<p>Instituto Nacional de Estadística e Informática (2020). <em>Perú:
+Proyecciones de Población por Departamento, Provincia y Distrito, 2018 -
+2020</em>. Boletín Especial Nº 26. Lima: INEI. <a href="https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1715/libro.pdf" class="uri">https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1715/libro.pdf</a></p>
+<p>Instituto Nacional de Estadística e Informática (2022). <em>Perú:
+Proyecciones de Población Total según Departamento, Provincia y
+Distrito, 2018 – 2022</em>. Boletín Especial Nº 27. Lima: INEI. <a href="https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1860/libro.pdf" class="uri">https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1860/libro.pdf</a></p>
 <p>Instituto Nacional de Estadística e Informática (2025). <em>Censos
 Nacionales 2025: listado de ubigeos</em>. Lima: INEI.</p>
+<p>Jurado Nacional de Elecciones (2021). <em>Resolución N.°
+0913-2021-JNE</em>, 22 de noviembre de 2021. Lima: JNE. <a href="https://portal.jne.gob.pe/portal_documentos/files/72803f45-044d-4c92-841b-6b2dbe8efc0a.pdf" class="uri">https://portal.jne.gob.pe/portal_documentos/files/72803f45-044d-4c92-841b-6b2dbe8efc0a.pdf</a></p>
 </div>
 
 

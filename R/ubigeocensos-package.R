@@ -4,7 +4,10 @@
 #' 2025 UBIGEO code, creation date, legal instrument of creation and presence
 #' in the 1981, 1993, 2007, 2017 and 2025 censuses.
 #'
-#' Datasets: [departments], [provinces], [districts], [inei1999_districts].
+#' Main datasets: [departments], [provinces], [districts].
+#' Source tables: [inei1999_districts], [division_counts],
+#' [inei_provinces_created], [inei_districts_created],
+#' [inei_district_origins], [districts_created_2020_2025].
 #'
 #' @keywords internal
 "_PACKAGE"
