@@ -11,13 +11,13 @@ A tibble with 1,892 rows and 15 variables:
 \item{department}{Name of the department}
 \item{province}{Name of the province}
 \item{district}{Name of the district}
-\item{created_date}{Date of creation (\code{Date}). Law date for INEI 1999;
+\item{created_date}{Date of creation (\code{Date}). Date of the instrument for INEI 1997 and INEI 1999;
 publication date for INEI 2020 provinces; date listed by JNE 2021 /
 Congreso 2025. \code{NA} when only the year is known.}
 \item{created_year}{Year of creation}
 \item{legal_instrument}{Type and number of the legal instrument of creation (e.g. \code{"LEY 15246"})}
 \item{independence_era}{\code{TRUE} if the source dates the unit to the Independence era (no instrument of creation)}
-\item{creation_source}{Source(s) of the creation data: \code{"INEI 1999"}, \code{"INEI 2020"}, \code{"INEI 2022"}, \code{"JNE 2021"}, \code{"Congreso 2025"}}
+\item{creation_source}{Source(s) of the creation data: \code{"INEI 1997"} (departments; law date of districts created 1990-97), \code{"INEI 1999"}, \code{"INEI 2020"}, \code{"INEI 2022"}, \code{"JNE 2021"}, \code{"Congreso 2025"}}
 \item{note}{Warnings about the data (possible errors in the source)}
 \item{census_1981,census_1993,census_2007,census_2017,census_2025}{1 if the unit
 existed at the census date, 0 if it was created afterwards. See Details.}

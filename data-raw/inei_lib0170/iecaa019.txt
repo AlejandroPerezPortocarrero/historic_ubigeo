@@ -1,0 +1,77 @@
+
+
+
+
+ 1.19  PERU: CATEGORIA DE LA CAPITAL LEGAL Y LEY DE CREACION DE
+       NUEVOS DISTRITOS, SEGUN REGION Y PROVINCIA, 1990 - 97
+
+ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+³                     ³               ³                                         NUEVOS  DISTRITOS                                         ³
+³                     ³               ÃÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´
+³REGION               ³   PROVINCIA   ³                            ³          CAPITAL    LEGAL           ³        LEY DE CREACION         ³
+³                     ³               ³                            ÃÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´
+³   DEPARTAMENTO      ³               ³          NOMBRE            ³       NOMBRE        ³     CATE-     ³      NU-       ³    FECHA      ³
+³                     ³               ³                            ³                     ³     GORIA     ³      MERO      ³               ³
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+AREQUIPA
+    AREQUIPA            AREQUIPA             JACOBO HUNTER              JACOBO HUNTER              CIUDAD          25225        02-JUN-90
+    AREQUIPA            AREQUIPA             ALTO SELVA ALEGRE          SELVA ALEGRE               CIUDAD          25849        16-NOV-92
+    AREQUIPA            AREQUIPA             JOSE LUIS BUSTAMANTE       CIUDAD SATELITE            CIUDAD          26455        23-MAY-95
+                                             Y RIVERO
+CHAVIN
+    ANCASH              HUAYLAS              SANTO TORIBIO              SANTO TORIBIO              PUEBLO          25255        19-JUN-90
+    ANCASH              HUARAZ               INDEPENDENCIA              CENTENARIO                 CIUDAD          25852        16-NOV-92
+    ANCASH              SANTA                NUEVO CHIMBOTE             BUENOS AIRES               CIUDAD          26318        27-MAY-94
+
+INKA
+    CUSCO               LA CONVENCION        QUIMBIRI                   QUIMBIRI                   PUEBLO          25209        04-MAY-90
+    APURIMAC            GRAU                 SANTA ROSA                 SANTA ROSA                 PUEBLO          25245        14-JUN-90
+    APURIMAC            GRAU                 CURASCO                    CURASCO                    PUEBLO          26244        29-OCT-93
+    MADRE DE DIOS       TAMBOPATA            LABERINTO                  PUERTO ROSARIO DE          VILLA           26346        07-SET-94
+                                                                        LABERINTO
+    CUSCO               ESPINAR              ALTO PICHIGUA              ACCOCUNCA                  VILLA           26367        14-OCT-94
+    APURIMAC            COTABAMBAS           CHALLHUAHUACHO             CHALLHUAHUACHO             PUEBLO          26391        18-NOV-94
+    CUSCO               LA CONVENCION        PICHARI                    PICHARI                    PUEBLO          26521        07-AGO-95
+
+JOSE  CARLOS
+MARIATEGUI
+    TACNA               TACNA                CIUDAD NUEVA               CIUDAD NUEVA               CIUDAD          25851        16-NOV-92
+    PUNO                EL COLLAO            CONDURIRI                  CONDURIRI                  PUEBLO          26228        24-SET-93
+    PUNO                SANDIA               ALTO INAMBARI              MASSIADO                   PUEBLO          26351        13-SET-94
+
+LA  LIBERTAD
+    LA LIBERTAD         JULCAN               CALAMARCA                  CALAMARCA                  PUEBLO          25261        19-JUN-90
+    LA LIBERTAD         JULCAN               CARABAMBA                  CARABAMBA                  PUEBLO          25261        19-JUN-90
+    LA LIBERTAD         JULCAN               HUASO                      HUASO                      PUEBLO          25261        19-JUN-90
+    LA LIBERTAD         VIRU                 CHAO                       CHAO                       VILLA           26427        04-ENE-95
+    LA LIBERTAD         VIRU                 GUADALUPITO                GUADALUPITO                VILLA           26427        04-ENE-95
+
+L0RETO
+    LORETO              REQUENA              JENARO HERRERA             JENARO HERRERA             VILLA           26239        19-OCT-93
+    LORETO              MARISCAL RAMON       SAN PABLO                  SAN PABLO                  PUEBLO          26240        19-OCT-93
+                        CASTILLA                                        DE LORETO
+
+LOS  LIBERTA-
+DORES - WARI
+    APURIMAC            ANDAHUAYLAS          SAN MIGUEL DE              CHACCRAMPA                 PUEBLO          25235        08-JUN-90
+                                             CHACCRAMPA
+    AYACUCHO            HUANTA               SIVIA                      SIVIA                      PUEBLO          25845        06-NOV-92
+    AYACUCHO            LA MAR               SANTA ROSA                 SANTA ROSA                 PUEBLO          25845        06-NOV-92
+    APURIMAC            CHINCHEROS           RANRACANCHA                RANRACANCHA                PUEBLO          26243        29-OCT-93
+    APURIMAC            ANDAHUAYLAS          KAQUIABAMBA                KAQUIABAMBA                PUEBLO          26471        09-JUN-95
+
+NOR  ORIENTAL
+DEL  MARAÑON
+    CAJAMARCA           CHOTA                CHOROPAMPA                 CHOROPAMPA                 PUEBLO          25366        12-DIC-91
+    CAJAMARCA           SAN MARCOS           CHANCAY                    CHANCAY                    PUEBLO          25853        16-NOV-92
+    CAJAMARCA           CELENDIN             LA LIBERTAD DE             LA LIBERTAD DE             PUEBLO          26262        23-DIC-93
+                                             PALLAN                     PALLAN
+    CAJAMARCA           CHOTA                CHALAMARCA                 CHALAMARCA                 PUEBLO          26456        23-MAY-95
+
+UCAYALI
+    UCAYALI             CORONEL PORTILLO     NUEVA REQUENA              NUEVA REQUENA              VILLA           26352        13-SET-94
+    UCAYALI             PADRE ABAD           CURIMANA                   CURIMANA                   PUEBLO          26429        05-ENE-95
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+Nota: Demarcaci¢n Pol¡tica vigente al 30 de junio de 1997.
+FUENTE: INSTITUTO NACIONAL DE ESTADISTICA E INFORMATICA
+        - Direcci¢n Nacional de Censos y Encuestas.

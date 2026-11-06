@@ -12,7 +12,8 @@ in the 1981, 1993, 2007, 2017 and 2025 censuses.
 }
 \details{
 Main datasets: \link{departments}, \link{provinces}, \link{districts}.
-Source tables: \link{inei1999_districts}, \link{division_counts},
+Source tables: \link{inei1997_departments}, \link{inei1997_provinces},
+\link{inei1997_districts}, \link{inei1999_districts}, \link{division_counts},
 \link{inei_provinces_created}, \link{inei_districts_created},
 \link{inei_district_origins}, \link{districts_created_2020_2025}.
 }

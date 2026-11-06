@@ -1,0 +1,65 @@
+
+
+
+       
+1.16 PERU: SUPERFICIE, POBLACION, DENSIDAD POBLACIONAL Y DISPOSITIVO
+     DE CREACION, SEGUN DEPARTAMENTO, 1997
+ 
+ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿                                           
+³                   ³            ³ POBLACION ³  DENSIDAD   ³                   DISPOSITIVO                   ³
+³   DEPARTAMENTO    ³ SUPERFICIE ³  PROYEC-  ³   POBLA-    ³                   DE CREACION                   ³
+³                   ³            ³           ³             ÃÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄ´
+³                   ³   (km2)    ³   TADA    ³   CIONAL    ³    N  O  M  B  R  E    ³  NUMERO   ³   FECHA    ³
+³                   ³            ³(30/06/97) ³  (hab/km2)  ³                        ³           ³            ³
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÙ                 
+     T O T A L        1285215,60     24371043        18,96     PROCLAMACION  (*)                 28 JUL 1821                   
+AMAZONAS                39249,13       383605         9,77            LEY                S/N     21 NOV 1832                   
+ANCASH  1/              35876,92      1035321        28,86     REGLTO.PROVISIONAL         -      12 FEB 1821                   
+APURIMAC                20895,79       413358        19,78            LEY                S/N     28 ABR 1873                   
+AREQUIPA                63345,39      1017491        16,06          DECRETO              S/N     26 ABR 1822                   
+AYACUCHO  2/            43814,80       518528        11,83    REGLTO.DE ELECCIONES        -      26 ABR 1822                   
+CAJAMARCA               33317,54      1360294        40,83          DECRETO              S/N     11 FEB 1855                   
+CALLAO  3/                146,98       717913      4884,43          DECRETO              S/N     20 AGO 1836                   
+CUSCO                   72104,41      1117311        15,50    REGLTO.DE ELECCIONES        -      26 ABR 1822                   
+HUANCAVELICA            22131,47       417695        18,87    REGLTO.DE ELECCIONES        -      26 ABR 1822                   
+HUANUCO                 36886,74       732373        19,85            LEY                S/N     24 ENE 1869                   
+ICA                     21327,83       618253        28,99          DECRETO              S/N     30 ENE 1866                   
+JUNIN  4/               44197,23      1147328        25,96     REGLTO.PROVISIONAL         -      12 FEB 1821                   
+LA LIBERTAD  5/         25499,90      1390568        54,53     REGLTO.PROVISIONAL         -      12 FEB 1821                   
+LAMBAYEQUE              14231,30      1029199        72,32            LEY                S/N     01 DIC 1874                   
+LIMA                    34801,59      7066641       203,06          DECRETO              S/N     04 AGO 1821                   
+LORETO                 368851,95       819037         2,22          DECRETO              S/N     07 FEB 1866                   
+MADRE DE DIOS           85182,63        76610         0,90            LEY                1782    26 DIC 1912                   
+MOQUEGUA  6/            15733,97       140096         8,90            LEY                S/N     02 ENE 1857                   
+PASCO                   25319,59       244665         9,66            LEY               10030    27 NOV 1944                   
+PIURA                   35892,49      1487030        41,43            LEY                S/N     30 MAR 1861                   
+PUNO                    71999,00      1157551        16,08    REGLTO.DE ELECCIONES        -      26 ABR 1822                   
+SAN MARTIN              51253,31       667414        13,02            LEY                201     04 SET 1906                   
+TACNA                   16075,89       253617        15,78            LEY                S/N     25 JUN 1875                   
+TUMBES                   4669,20       178525        38,23            LEY                9667    25 NOV 1942                   
+UCAYALI                102410,55       380620         3,72            LEY               23099    18 JUN 1980                   
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ                          
+(*) El General Don Jos‚ de San Mart¡n proclam¢ la Independencia del Per£ en la Plaza Mayor de la Ciudad de Lima.
+Nota: Distribuci¢n Superficial vigente al 30 de junio de 1997.
+      Proyecci¢n Oficial de la Poblaci¢n del Per£ 1997 seg£n R.J.N§145-97-INEI de fecha 10-jul-1997.
+1/ Este Departamento figura en el Reglamento Provisional del 12-Feb-1821, con  el nombre Huaylas.
+    Ley del 04-Nov-1823 se uni¢ los Departamento Huaylas y Tarma bajo la denominaci¢n
+    Hu nuco, por Decreto del 13-Set-1825 se dio el nombre Jun¡n al Departamento  Hu nuco.
+    El 12-Jun-1835, se expidi¢ un Decreto creando nuevamente el Departamento Huaylas, con fecha
+    10-Oct-1836 se dio otro Decreto dividiendo el Departamento Jun¡n en dos: Jun¡n y Huaylas. Por
+    Decreto del 28-Feb-1839 se dio el nombre Ancash al Departamento Huaylas.
+2/ En el Reglamento Provisional de Elecciones del 26-Abr-1822, se designa a  este Departamento
+    con el nombre Huamanga. Por Decreto del 15-Feb-1825 se dio el nombre  Ayacucho.
+3/ El Decreto del 20-Ago-1836 erigi¢ en Gobierno Litoral los pueblos del Callao y Bellavista,
+    por ley del 22-Abr-1857, se le dio el nombre Provincia Constitucional.
+4/ Este Departamento figura en el Reglamento Provisional del 12-Feb-1821 con el nombre Tarma.
+    Por Ley del 04-Nov-1823 se uni¢ los Departamentos Huaylas y Tarma bajo la denominaci¢n
+    Hu nuco. Por Decreto del 13-Set-1825 se dio a este Departamento el nombre Jun¡n.
+5/ En el Reglamento Provisional del 12-Feb-1821, figura este Departamento con el nombre
+    Trujillo, por Ley del 09-Mar-1825, se le dio la denominaci¢n La Libertad.
+6/ La ley N§8230 del 03-Abr-1936, volvi¢ a crear el Departamento Moquegua.
+FUENTE: INSTITUTO NACIONAL DE ESTADISTICA E INFORMATICA
+        - Direcci¢n Nacional de Censos y Encuestas.
+        - Direcci¢n T‚cnica de Demograf¡a y Estudios Sociales.
+
+

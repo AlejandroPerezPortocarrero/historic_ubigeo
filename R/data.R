@@ -8,13 +8,13 @@
 #' \describe{
 #'   \item{inei}{UBIGEO (INEI, Census 2025), 6-character string}
 #'   \item{department}{Name of the department}
-#'   \item{created_date}{Date of creation (`Date`). Law date for INEI 1999;
+#'   \item{created_date}{Date of creation (`Date`). Date of the instrument for INEI 1997 and INEI 1999;
 #'     publication date for INEI 2020 provinces; date listed by JNE 2021 /
 #'     Congreso 2025. `NA` when only the year is known.}
 #'   \item{created_year}{Year of creation}
 #'   \item{legal_instrument}{Type and number of the legal instrument of creation (e.g. `"LEY 15246"`)}
 #'   \item{independence_era}{`TRUE` if the source dates the unit to the Independence era (no instrument of creation)}
-#'   \item{creation_source}{Source(s) of the creation data: `"INEI 1999"`, `"INEI 2020"`, `"INEI 2022"`, `"JNE 2021"`, `"Congreso 2025"`}
+#'   \item{creation_source}{Source(s) of the creation data: `"INEI 1997"` (departments; law date of districts created 1990-97), `"INEI 1999"`, `"INEI 2020"`, `"INEI 2022"`, `"JNE 2021"`, `"Congreso 2025"`}
 #'   \item{note}{Warnings about the data (possible errors in the source)}
 #'   \item{census_1981,census_1993,census_2007,census_2017,census_2025}{1 if the unit
 #'     existed at the census date, 0 if it was created afterwards. See Details.}
@@ -30,10 +30,8 @@
 #' split, merged or moved between departments keep their 2025 identity, and
 #' units abolished before 2025 are not included. See
 #' `vignette("construction", package = "ubigeocensos")`.
-#' @source INEI, list of UBIGEO codes of the 2025 Census; INEI (1999), see
-#'   [inei1999_districts]; INEI (2020) and INEI (2022), see [division_counts];
-#'   JNE (2021) and Congreso de la República (2025), see
-#'   [districts_created_2020_2025].
+#' @source INEI, list of UBIGEO codes of the 2025 Census; INEI (1997), see
+#'   [inei1997_departments].
 "departments"
 
 #' Provinces of Peru (Census 2025)
@@ -46,13 +44,13 @@
 #'   \item{inei}{UBIGEO (INEI, Census 2025), 6-character string}
 #'   \item{department}{Name of the department}
 #'   \item{province}{Name of the province}
-#'   \item{created_date}{Date of creation (`Date`). Law date for INEI 1999;
+#'   \item{created_date}{Date of creation (`Date`). Date of the instrument for INEI 1997 and INEI 1999;
 #'     publication date for INEI 2020 provinces; date listed by JNE 2021 /
 #'     Congreso 2025. `NA` when only the year is known.}
 #'   \item{created_year}{Year of creation}
 #'   \item{legal_instrument}{Type and number of the legal instrument of creation (e.g. `"LEY 15246"`)}
 #'   \item{independence_era}{`TRUE` if the source dates the unit to the Independence era (no instrument of creation)}
-#'   \item{creation_source}{Source(s) of the creation data: `"INEI 1999"`, `"INEI 2020"`, `"INEI 2022"`, `"JNE 2021"`, `"Congreso 2025"`}
+#'   \item{creation_source}{Source(s) of the creation data: `"INEI 1997"` (departments; law date of districts created 1990-97), `"INEI 1999"`, `"INEI 2020"`, `"INEI 2022"`, `"JNE 2021"`, `"Congreso 2025"`}
 #'   \item{note}{Warnings about the data (possible errors in the source)}
 #'   \item{census_1981,census_1993,census_2007,census_2017,census_2025}{1 if the unit
 #'     existed at the census date, 0 if it was created afterwards. See Details.}
@@ -85,13 +83,13 @@
 #'   \item{department}{Name of the department}
 #'   \item{province}{Name of the province}
 #'   \item{district}{Name of the district}
-#'   \item{created_date}{Date of creation (`Date`). Law date for INEI 1999;
+#'   \item{created_date}{Date of creation (`Date`). Date of the instrument for INEI 1997 and INEI 1999;
 #'     publication date for INEI 2020 provinces; date listed by JNE 2021 /
 #'     Congreso 2025. `NA` when only the year is known.}
 #'   \item{created_year}{Year of creation}
 #'   \item{legal_instrument}{Type and number of the legal instrument of creation (e.g. `"LEY 15246"`)}
 #'   \item{independence_era}{`TRUE` if the source dates the unit to the Independence era (no instrument of creation)}
-#'   \item{creation_source}{Source(s) of the creation data: `"INEI 1999"`, `"INEI 2020"`, `"INEI 2022"`, `"JNE 2021"`, `"Congreso 2025"`}
+#'   \item{creation_source}{Source(s) of the creation data: `"INEI 1997"` (departments; law date of districts created 1990-97), `"INEI 1999"`, `"INEI 2020"`, `"INEI 2022"`, `"JNE 2021"`, `"Congreso 2025"`}
 #'   \item{note}{Warnings about the data (possible errors in the source)}
 #'   \item{census_1981,census_1993,census_2007,census_2017,census_2025}{1 if the unit
 #'     existed at the census date, 0 if it was created afterwards. See Details.}
@@ -112,6 +110,90 @@
 #'   JNE (2021) and Congreso de la República (2025), see
 #'   [districts_created_2020_2025].
 "districts"
+
+#' Legal creation of departments, INEI 1997
+#'
+#' Cuadro 1.16 of the INEI *Compendio Estadístico 1996-97*, "Perú: Superficie,
+#' población, densidad poblacional y dispositivo de creación, según
+#' departamento, 1997", matched to the 2025 UBIGEO. For the departments listed
+#' in the 1821-1822 founding regulations, the date is that of the regulation,
+#' and the footnotes record later renamings and re-creations (e.g. Huaylas →
+#' Áncash, Tarma → Junín, Trujillo → La Libertad, Huamanga → Ayacucho, and
+#' Moquegua, re-created by Law 8230 of 1936).
+#'
+#' @format A tibble with 25 rows and 10 variables:
+#' \describe{
+#'   \item{inei}{UBIGEO (INEI, Census 2025) of the department}
+#'   \item{department_1997}{Name as published}
+#'   \item{instrument_type}{Type of instrument as published: LEY, DECRETO,
+#'     REGLTO.PROVISIONAL (Reglamento Provisional, 12/02/1821), REGLTO.DE
+#'     ELECCIONES (Reglamento Provisional de Elecciones, 26/04/1822)}
+#'   \item{instrument_number}{Number of the instrument (`S/N` = unnumbered; `NA` if not applicable)}
+#'   \item{date_text}{Date as published (e.g. `"21 NOV 1832"`)}
+#'   \item{created_date}{Date of the instrument (`Date`)}
+#'   \item{surface}{Surface in km2, as at 30/06/1997}
+#'   \item{pop_1997}{Projected population at 30/06/1997}
+#'   \item{pop_density_1997}{Population density (inhabitants per km2)}
+#'   \item{footnote}{Footnote of the source, in Spanish (renamings, re-creations)}
+#' }
+#' @source Instituto Nacional de Estadística e Informática (1997). *Compendio
+#'   Estadístico 1996-97*. Lima: INEI. Cuadro 1.16.
+#'   <https://proyectos.inei.gob.pe/web/biblioineipub/bancopub/Est/LIB0170/N02/iecaa016.htm>
+"inei1997_departments"
+
+#' Provinces created 1990-1997, INEI 1997
+#'
+#' Cuadro 1.18 of the INEI *Compendio Estadístico 1996-97*, "Perú: Categoría de
+#' la capital legal y ley de creación de nuevas provincias, según región y
+#' departamento, 1990 - 97", matched to the 2025 UBIGEO. It gives the date of
+#' the law (INEI 2020/2022 give its publication date, see
+#' [inei_provinces_created]), and the legal capital and its category.
+#'
+#' @format A tibble with 11 rows and 10 variables:
+#' \describe{
+#'   \item{inei}{UBIGEO (2025) of the province}
+#'   \item{region}{Region in 1997 (the transitional regions of the 1990s)}
+#'   \item{department,province}{Names as published}
+#'   \item{capital}{Legal capital}
+#'   \item{category}{Category of the capital: CIUDAD, VILLA or PUEBLO}
+#'   \item{law_number}{Number of the law of creation}
+#'   \item{date_text}{Date of the law as published (e.g. `"05-ENE-95"`)}
+#'   \item{date}{Date of the law (`Date`)}
+#'   \item{note}{Inconsistencies with INEI (2020): the law date of Yarowilca
+#'     (09/06/1995) is after its publication date (01/06/1995), and that of El
+#'     Dorado (08/11/1992) is a month before it (09/12/1992)}
+#' }
+#' @source Instituto Nacional de Estadística e Informática (1997). *Compendio
+#'   Estadístico 1996-97*. Lima: INEI. Cuadros 1.18 and 1.19.
+#'   <https://proyectos.inei.gob.pe/web/biblioineipub/bancopub/Est/LIB0170/n00.htm>
+"inei1997_provinces"
+
+#' Districts created 1990-1997, INEI 1997
+#'
+#' Cuadro 1.19 of the INEI *Compendio Estadístico 1996-97*, "Perú: Categoría de
+#' la capital legal y ley de creación de nuevos distritos, según región y
+#' provincia, 1990 - 97", matched to the 2025 UBIGEO. It gives the date of the
+#' law, which [inei_districts_created] lacks (year only), and the legal capital
+#' and its category. Huayrapata and Tilali, created in 1991 together with the
+#' province of Moho (Law 25360), are not in the table.
+#'
+#' @format A tibble with 34 rows and 11 variables:
+#' \describe{
+#'   \item{inei}{UBIGEO (2025) of the district}
+#'   \item{region}{Region in 1997}
+#'   \item{department,province,district}{Names as published}
+#'   \item{capital}{Legal capital}
+#'   \item{category}{Category of the capital: CIUDAD, VILLA or PUEBLO}
+#'   \item{law_number}{Number of the law of creation}
+#'   \item{date_text}{Date of the law as published}
+#'   \item{date}{Date of the law (`Date`)}
+#'   \item{note}{Inconsistencies with INEI (2020/2022): Laberinto has Law
+#'     26346 here and Law 26349 there}
+#' }
+#' @source Instituto Nacional de Estadística e Informática (1997). *Compendio
+#'   Estadístico 1996-97*. Lima: INEI. Cuadros 1.18 and 1.19.
+#'   <https://proyectos.inei.gob.pe/web/biblioineipub/bancopub/Est/LIB0170/n00.htm>
+"inei1997_districts"
 
 #' Legal creation of districts, INEI 1999
 #'

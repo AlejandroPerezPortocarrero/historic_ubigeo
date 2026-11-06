@@ -34,6 +34,12 @@ references:
     year: 2022
     url: "https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1860/libro.pdf"
   - type: report
+    title: "Compendio Estadístico 1996-97"
+    authors:
+      - name: "Instituto Nacional de Estadística e Informática"
+    year: 1997
+    url: "https://proyectos.inei.gob.pe/web/biblioineipub/bancopub/Est/LIB0170/n00.htm"
+  - type: report
     title: "Perú: Directorio Nacional de Municipalidades Provinciales y Distritales 1999"
     authors:
       - name: "Instituto Nacional de Estadística e Informática"

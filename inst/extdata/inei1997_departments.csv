@@ -1,0 +1,26 @@
+"inei","department_1997","instrument_type","instrument_number","date_text","created_date","surface","pop_1997","pop_density_1997","footnote"
+"010000","AMAZONAS","LEY","S/N","21 NOV 1832",1832-11-21,39249.13,383605,9.77,
+"020000","ANCASH","REGLTO.PROVISIONAL",,"12 FEB 1821",1821-02-12,35876.92,1035321,28.86,"Este Departamento figura en el Reglamento Provisional del 12-Feb-1821, con el nombre Huaylas. Ley del 04-Nov-1823 se unió los Departamento Huaylas y Tarma bajo la denominación Huánuco, por Decreto del 13-Set-1825 se dio el nombre Junín al Departamento Huánuco. El 12-Jun-1835, se expidió un Decreto creando nuevamente el Departamento Huaylas, con fecha 10-Oct-1836 se dio otro Decreto dividiendo el Departamento Junín en dos: Junín y Huaylas. Por Decreto del 28-Feb-1839 se dio el nombre Ancash al Departamento Huaylas."
+"030000","APURIMAC","LEY","S/N","28 ABR 1873",1873-04-28,20895.79,413358,19.78,
+"040000","AREQUIPA","DECRETO","S/N","26 ABR 1822",1822-04-26,63345.39,1017491,16.06,
+"050000","AYACUCHO","REGLTO.DE ELECCIONES",,"26 ABR 1822",1822-04-26,43814.8,518528,11.83,"En el Reglamento Provisional de Elecciones del 26-Abr-1822, se designa a este Departamento con el nombre Huamanga. Por Decreto del 15-Feb-1825 se dio el nombre Ayacucho."
+"060000","CAJAMARCA","DECRETO","S/N","11 FEB 1855",1855-02-11,33317.54,1360294,40.83,
+"070000","CALLAO","DECRETO","S/N","20 AGO 1836",1836-08-20,146.98,717913,4884.43,"El Decreto del 20-Ago-1836 erigió en Gobierno Litoral los pueblos del Callao y Bellavista, por ley del 22-Abr-1857, se le dio el nombre Provincia Constitucional."
+"080000","CUSCO","REGLTO.DE ELECCIONES",,"26 ABR 1822",1822-04-26,72104.41,1117311,15.5,
+"090000","HUANCAVELICA","REGLTO.DE ELECCIONES",,"26 ABR 1822",1822-04-26,22131.47,417695,18.87,
+"100000","HUANUCO","LEY","S/N","24 ENE 1869",1869-01-24,36886.74,732373,19.85,
+"110000","ICA","DECRETO","S/N","30 ENE 1866",1866-01-30,21327.83,618253,28.99,
+"120000","JUNIN","REGLTO.PROVISIONAL",,"12 FEB 1821",1821-02-12,44197.23,1147328,25.96,"Este Departamento figura en el Reglamento Provisional del 12-Feb-1821 con el nombre Tarma. Por Ley del 04-Nov-1823 se unió los Departamentos Huaylas y Tarma bajo la denominación Huánuco. Por Decreto del 13-Set-1825 se dio a este Departamento el nombre Junín."
+"130000","LA LIBERTAD","REGLTO.PROVISIONAL",,"12 FEB 1821",1821-02-12,25499.9,1390568,54.53,"En el Reglamento Provisional del 12-Feb-1821, figura este Departamento con el nombre Trujillo, por Ley del 09-Mar-1825, se le dio la denominación La Libertad."
+"140000","LAMBAYEQUE","LEY","S/N","01 DIC 1874",1874-12-01,14231.3,1029199,72.32,
+"150000","LIMA","DECRETO","S/N","04 AGO 1821",1821-08-04,34801.59,7066641,203.06,
+"160000","LORETO","DECRETO","S/N","07 FEB 1866",1866-02-07,368851.95,819037,2.22,
+"170000","MADRE DE DIOS","LEY","1782","26 DIC 1912",1912-12-26,85182.63,76610,0.9,
+"180000","MOQUEGUA","LEY","S/N","02 ENE 1857",1857-01-02,15733.97,140096,8.9,"La ley Nº8230 del 03-Abr-1936, volvió a crear el Departamento Moquegua."
+"190000","PASCO","LEY","10030","27 NOV 1944",1944-11-27,25319.59,244665,9.66,
+"200000","PIURA","LEY","S/N","30 MAR 1861",1861-03-30,35892.49,1487030,41.43,
+"210000","PUNO","REGLTO.DE ELECCIONES",,"26 ABR 1822",1822-04-26,71999,1157551,16.08,
+"220000","SAN MARTIN","LEY","201","04 SET 1906",1906-09-04,51253.31,667414,13.02,
+"230000","TACNA","LEY","S/N","25 JUN 1875",1875-06-25,16075.89,253617,15.78,
+"240000","TUMBES","LEY","9667","25 NOV 1942",1942-11-25,4669.2,178525,38.23,
+"250000","UCAYALI","LEY","23099","18 JUN 1980",1980-06-18,102410.55,380620,3.72,

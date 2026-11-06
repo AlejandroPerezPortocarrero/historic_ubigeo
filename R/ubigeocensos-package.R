@@ -5,7 +5,8 @@
 #' in the 1981, 1993, 2007, 2017 and 2025 censuses.
 #'
 #' Main datasets: [departments], [provinces], [districts].
-#' Source tables: [inei1999_districts], [division_counts],
+#' Source tables: [inei1997_departments], [inei1997_provinces],
+#' [inei1997_districts], [inei1999_districts], [division_counts],
 #' [inei_provinces_created], [inei_districts_created],
 #' [inei_district_origins], [districts_created_2020_2025].
 #'

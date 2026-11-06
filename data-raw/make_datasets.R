@@ -7,6 +7,8 @@ source("data-raw/02_inei1999_creation.R")   # INEI (1999): creation of districts
 source("data-raw/03_inei2020_division.R")   # INEI (2020): division at census dates, 1981-2019 creations
 source("data-raw/04_inei2022_division.R")   # INEI (2022): update to 31/12/2021, 1981-2021 creations
 source("data-raw/05_districts_2020_2025.R") # JNE (2021), Congreso (2025): dates of 2020-2025 creations
+source("data-raw/06_inei1997_departments.R") # INEI (1997): creation of departments
+source("data-raw/07_inei1997_new_units.R")   # INEI (1997): provinces and districts created 1990-97
 
 census_cut <- as.Date(c("1981" = "1981-07-12", "1993" = "1993-07-11",
                         "2007" = "2007-10-21", "2017" = "2017-10-22"))
@@ -58,6 +60,27 @@ master$created_date[h]     <- districts_created_2020_2025$date[i[h]]
 master$legal_instrument[h] <- paste("LEY", districts_created_2020_2025$law_number[i[h]])
 master$independence_era[h] <- FALSE
 master$creation_source[h]  <- add_source(master$creation_source[h], districts_created_2020_2025$source[i[h]])
+
+# (e) INEI 1997: instrument and date of creation of departments
+i <- match(master$inei, inei1997_departments$inei); h <- !is.na(i)
+master$created_date[h]     <- inei1997_departments$created_date[i[h]]
+master$legal_instrument[h] <- trimws(paste(inei1997_departments$instrument_type[i[h]],
+                                           ifelse(is.na(inei1997_departments$instrument_number[i[h]]), "",
+                                                  inei1997_departments$instrument_number[i[h]])))
+master$independence_era[h] <- FALSE
+master$creation_source[h]  <- "INEI 1997"
+master$note[h]             <- inei1997_departments$footnote[i[h]]
+stopifnot(all(master$created_date[h] < census_cut[["1981"]]))  # all departments predate 1981
+
+# (f) INEI 1997: date of the law for the 34 districts created 1990-97 listed in
+#     cuadro 1.19 (INEI 2020/2022 give only the year). Provinces keep the
+#     publication date from INEI 2020/2022; their law dates are in
+#     `inei1997_provinces`.
+i <- match(master$inei, inei1997_districts$inei); h <- !is.na(i)
+stopifnot(all(is.na(master$created_date[h])))
+master$created_date[h]     <- inei1997_districts$date[i[h]]
+master$creation_source[h]  <- paste("INEI 1997", master$creation_source[h], sep = "; ")
+master$note[h]             <- ifelse(is.na(master$note[h]), inei1997_districts$note[i[h]], master$note[h])
 
 master$created_year <- ifelse(is.na(master$created_date), master$created_year,
                               as.integer(format(master$created_date, "%Y")))
@@ -123,6 +146,7 @@ districts$district <- districts$name
 districts <- tibble::as_tibble(districts[, c("inei", "department", "province", "district", common)])
 
 usethis::use_data(departments, provinces, districts,
+                  inei1997_departments, inei1997_provinces, inei1997_districts,
                   inei1999_districts,
                   division_counts, inei_provinces_created,
                   inei_districts_created, inei_district_origins,
@@ -131,7 +155,8 @@ usethis::use_data(departments, provinces, districts,
 
 # CSV copies for non-R users
 dir.create("inst/extdata", showWarnings = FALSE, recursive = TRUE)
-for (nm in c("departments", "provinces", "districts", "inei1999_districts",
+for (nm in c("departments", "provinces", "districts", "inei1997_departments",
+             "inei1997_provinces", "inei1997_districts", "inei1999_districts",
              "division_counts", "inei_provinces_created",
              "inei_districts_created", "inei_district_origins",
              "districts_created_2020_2025")) {
