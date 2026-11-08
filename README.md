@@ -33,7 +33,7 @@ The construction steps and sources are documented in the vignette `vignette("con
 | 2 | Creation date and legal instrument | ✅ All units but four (Callao province; Urcos, Anco and Magdalena de Cao districts), from INEI 1997–2022, JNE, Congreso and PCM-SDOT (GEOSDOT) |
 | 3 | Presence in the 1981, 1993, 2007 and 2017 censuses | ✅ (matches INEI national counts, and department counts at 31/12/2021) |
 | 4 | Territorial origin of districts created 1981–2021 | ✅ (`inei_district_origins`) |
-| 5 | Creation dates of districts that existed before 1981 (INEI 1999, other 24 departments) | ⏳ |
+| 5 | Creation dates of units that existed before 1981 | ✅ From PCM-SDOT (GEOSDOT), 1,511 districts and 152 provinces; disagreements with INEI noted in `note` |
 | 6 | Crosswalk for recoded units, checked against each census's UBIGEO list | ⏳ |
 
 ## Data structure
