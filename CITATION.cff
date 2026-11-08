@@ -62,3 +62,10 @@ references:
       - name: "Congreso de la República del Perú"
     year: 2025
     url: "https://www.congreso.gob.pe/Docs/DGP/GestionInformacionEstadistica/files/publicaciones-25/leyes-declarativas-creaci%C3%93n-distritos.pdf"
+  - type: database
+    title: "Sistema de consultas de información de naturaleza demarcatoria (GEOSDOT)"
+    authors:
+      - name: "Presidencia del Consejo de Ministros, Secretaría de Demarcación y Organización Territorial"
+    year: 2026
+    date-accessed: "2026-11-08"
+    url: "https://geosdot.servicios.gob.pe/consultas/#/circunscripcion"

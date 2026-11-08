@@ -17,7 +17,7 @@ Congreso 2025. \code{NA} when only the year is known.}
 \item{created_year}{Year of creation}
 \item{legal_instrument}{Type and number of the legal instrument of creation (e.g. \code{"LEY 15246"})}
 \item{independence_era}{\code{TRUE} if the source dates the unit to the Independence era (no instrument of creation)}
-\item{creation_source}{Source(s) of the creation data: \code{"INEI 1997"} (departments; law date of districts created 1990-97), \code{"INEI 1999"}, \code{"INEI 2020"}, \code{"INEI 2022"}, \code{"JNE 2021"}, \code{"Congreso 2025"}}
+\item{creation_source}{Source(s) of the creation data: \code{"INEI 1997"} (departments; law date of districts created 1990-97), \code{"INEI 1999"}, \code{"INEI 2020"}, \code{"INEI 2022"}, \code{"JNE 2021"}, \code{"Congreso 2025"}, \code{"GEOSDOT"}}
 \item{note}{Warnings about the data (possible errors in the source)}
 \item{census_1981,census_1993,census_2007,census_2017,census_2025}{1 if the unit
 existed at the census date, 0 if it was created afterwards. See Details.}
@@ -27,7 +27,7 @@ existed at the census date, 0 if it was created afterwards. See Details.}
 INEI, list of UBIGEO codes of the 2025 Census; INEI (1999), see
 \link{inei1999_districts}; INEI (2020) and INEI (2022), see \link{division_counts};
 JNE (2021) and Congreso de la República (2025), see
-\link{districts_created_2020_2025}.
+\link{districts_created_2020_2025}; PCM-SDOT (GEOSDOT), see \link{geosdot_norms}.
 }
 \usage{
 districts

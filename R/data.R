@@ -14,7 +14,7 @@
 #'   \item{created_year}{Year of creation}
 #'   \item{legal_instrument}{Type and number of the legal instrument of creation (e.g. `"LEY 15246"`)}
 #'   \item{independence_era}{`TRUE` if the source dates the unit to the Independence era (no instrument of creation)}
-#'   \item{creation_source}{Source(s) of the creation data: `"INEI 1997"` (departments; law date of districts created 1990-97), `"INEI 1999"`, `"INEI 2020"`, `"INEI 2022"`, `"JNE 2021"`, `"Congreso 2025"`}
+#'   \item{creation_source}{Source(s) of the creation data: `"INEI 1997"` (departments; law date of districts created 1990-97), `"INEI 1999"`, `"INEI 2020"`, `"INEI 2022"`, `"JNE 2021"`, `"Congreso 2025"`, `"GEOSDOT"`}
 #'   \item{note}{Warnings about the data (possible errors in the source)}
 #'   \item{census_1981,census_1993,census_2007,census_2017,census_2025}{1 if the unit
 #'     existed at the census date, 0 if it was created afterwards. See Details.}
@@ -50,7 +50,7 @@
 #'   \item{created_year}{Year of creation}
 #'   \item{legal_instrument}{Type and number of the legal instrument of creation (e.g. `"LEY 15246"`)}
 #'   \item{independence_era}{`TRUE` if the source dates the unit to the Independence era (no instrument of creation)}
-#'   \item{creation_source}{Source(s) of the creation data: `"INEI 1997"` (departments; law date of districts created 1990-97), `"INEI 1999"`, `"INEI 2020"`, `"INEI 2022"`, `"JNE 2021"`, `"Congreso 2025"`}
+#'   \item{creation_source}{Source(s) of the creation data: `"INEI 1997"` (departments; law date of districts created 1990-97), `"INEI 1999"`, `"INEI 2020"`, `"INEI 2022"`, `"JNE 2021"`, `"Congreso 2025"`, `"GEOSDOT"`}
 #'   \item{note}{Warnings about the data (possible errors in the source)}
 #'   \item{census_1981,census_1993,census_2007,census_2017,census_2025}{1 if the unit
 #'     existed at the census date, 0 if it was created afterwards. See Details.}
@@ -69,7 +69,7 @@
 #' @source INEI, list of UBIGEO codes of the 2025 Census; INEI (1999), see
 #'   [inei1999_districts]; INEI (2020) and INEI (2022), see [division_counts];
 #'   JNE (2021) and Congreso de la República (2025), see
-#'   [districts_created_2020_2025].
+#'   [districts_created_2020_2025]; PCM-SDOT (GEOSDOT), see [geosdot_norms].
 "provinces"
 
 #' Districts of Peru (Census 2025)
@@ -89,7 +89,7 @@
 #'   \item{created_year}{Year of creation}
 #'   \item{legal_instrument}{Type and number of the legal instrument of creation (e.g. `"LEY 15246"`)}
 #'   \item{independence_era}{`TRUE` if the source dates the unit to the Independence era (no instrument of creation)}
-#'   \item{creation_source}{Source(s) of the creation data: `"INEI 1997"` (departments; law date of districts created 1990-97), `"INEI 1999"`, `"INEI 2020"`, `"INEI 2022"`, `"JNE 2021"`, `"Congreso 2025"`}
+#'   \item{creation_source}{Source(s) of the creation data: `"INEI 1997"` (departments; law date of districts created 1990-97), `"INEI 1999"`, `"INEI 2020"`, `"INEI 2022"`, `"JNE 2021"`, `"Congreso 2025"`, `"GEOSDOT"`}
 #'   \item{note}{Warnings about the data (possible errors in the source)}
 #'   \item{census_1981,census_1993,census_2007,census_2017,census_2025}{1 if the unit
 #'     existed at the census date, 0 if it was created afterwards. See Details.}
@@ -108,7 +108,7 @@
 #' @source INEI, list of UBIGEO codes of the 2025 Census; INEI (1999), see
 #'   [inei1999_districts]; INEI (2020) and INEI (2022), see [division_counts];
 #'   JNE (2021) and Congreso de la República (2025), see
-#'   [districts_created_2020_2025].
+#'   [districts_created_2020_2025]; PCM-SDOT (GEOSDOT), see [geosdot_norms].
 "districts"
 
 #' Legal creation of departments, INEI 1997
@@ -346,3 +346,45 @@
 #'   Congreso de la República (2025). *Leyes de creación de distritos*. Área de
 #'   Estadística Parlamentaria. <https://www.congreso.gob.pe/Docs/DGP/GestionInformacionEstadistica/files/publicaciones-25/leyes-declarativas-creaci%C3%93n-distritos.pdf>
 "districts_created_2020_2025"
+
+#' Legal instruments of creation and modification, PCM-SDOT (GEOSDOT)
+#'
+#' Every legal instrument that the registry of the Secretaría de Demarcación y
+#' Organización Territorial (SDOT) of the Presidencia del Consejo de Ministros
+#' lists for each department, province and district, matched to the 2025
+#' UBIGEO. Each instrument is tagged as "Creación", "Modificación" or
+#' "Cancelación". Downloaded on 08/11/2026 from the "Circunscripciones" module
+#' of GEOSDOT, through the same API the web page uses.
+#'
+#' The registry covers the 25 departments, 194 provinces (not the
+#' Constitutional Province of Callao or Moho) and 1,872 districts. It does not
+#' include the 18 districts created in 2020-2025, nor Urcos (Quispicanchi) and
+#' Anco (Churcampa). Its instruments of creation fill [districts] and
+#' [provinces] for the units that no other source covers (`creation_source ==
+#' "GEOSDOT"`); where other sources cover a unit and GEOSDOT disagrees, the
+#' GEOSDOT instrument is recorded in `note`.
+#'
+#' @format A tibble with 4,788 rows and 12 variables:
+#' \describe{
+#'   \item{inei}{UBIGEO (2025) of the unit}
+#'   \item{level}{`"department"`, `"province"` or `"district"`}
+#'   \item{id_geosdot}{Identifier of the unit (circunscripción) in GEOSDOT}
+#'   \item{name}{Name of the unit in GEOSDOT}
+#'   \item{action}{`"Creación"`, `"Modificación"` or `"Cancelación"`}
+#'   \item{instrument_type}{Type of instrument (Ley, Decreto, Decreto Ley, Ley
+#'     Regional, Resolución Legislativa, Reglamento de Elecciones de Diputados,
+#'     Censo, ...). "Censo" marks districts first recorded in a census (1876,
+#'     1940 or 1981), with no law of creation.}
+#'   \item{instrument_number}{Number of the instrument (`S/N` = unnumbered)}
+#'   \item{date}{Date of the instrument (`NA` for censuses)}
+#'   \item{id_instrument}{Identifier of the instrument in GEOSDOT}
+#'   \item{name_in_instrument,capital_in_instrument}{Name of the unit and of its
+#'     capital as given in the instrument}
+#'   \item{summary}{Summary (sumilla) of the instrument, in Spanish, truncated
+#'     to 300 characters}
+#' }
+#' @source Presidencia del Consejo de Ministros, Secretaría de Demarcación y
+#'   Organización Territorial (2026). *Sistema de consultas de información de
+#'   naturaleza demarcatoria (GEOSDOT)*, módulo Circunscripciones. Consulted on
+#'   08/11/2026. <https://geosdot.servicios.gob.pe/consultas/#/circunscripcion>
+"geosdot_norms"

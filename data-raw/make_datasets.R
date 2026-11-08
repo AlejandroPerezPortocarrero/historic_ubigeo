@@ -9,6 +9,7 @@ source("data-raw/04_inei2022_division.R")   # INEI (2022): update to 31/12/2021,
 source("data-raw/05_districts_2020_2025.R") # JNE (2021), Congreso (2025): dates of 2020-2025 creations
 source("data-raw/06_inei1997_departments.R") # INEI (1997): creation of departments
 source("data-raw/07_inei1997_new_units.R")   # INEI (1997): provinces and districts created 1990-97
+source("data-raw/08_geosdot.R")              # PCM-SDOT (GEOSDOT): instruments of creation and modification
 
 census_cut <- as.Date(c("1981" = "1981-07-12", "1993" = "1993-07-11",
                         "2007" = "2007-10-21", "2017" = "2017-10-22"))
@@ -82,6 +83,46 @@ master$created_date[h]     <- inei1997_districts$date[i[h]]
 master$creation_source[h]  <- paste("INEI 1997", master$creation_source[h], sep = "; ")
 master$note[h]             <- ifelse(is.na(master$note[h]), inei1997_districts$note[i[h]], master$note[h])
 
+# (g) GEOSDOT: instrument of creation of units that no other source covers
+#     (mostly districts and provinces that predate 1981). For units that other
+#     sources cover, GEOSDOT is compared and disagreements are noted.
+g_i <- match(master$inei, geosdot_creation$inei)
+g_has <- !is.na(g_i)
+g_instr <- geosdot_creation$instrument
+in_inei_lists <- master$inei %in% c(inei_provinces_created$inei, inei_districts_created$inei,
+                                    districts_created_2020_2025$inei)
+g_date <- geosdot_creation$date[g_i]
+# A unit absent from the 1981-2025 creation lists existed at the 1981 Census; a
+# GEOSDOT "creation" after that date refers to another change (e.g. a transfer
+# to a new province) and is not used.
+g_late <- g_has & !in_inei_lists & !is.na(g_date) & g_date >= census_cut[["1981"]]
+h <- g_has & is.na(master$creation_source) & !g_late
+master$created_date[h]     <- g_date[h]
+master$created_year[h]     <- geosdot_creation$year[g_i[h]]
+master$legal_instrument[h] <- g_instr[g_i[h]]
+master$independence_era[h] <- FALSE
+master$creation_source[h]  <- "GEOSDOT"
+master$note[h]             <- geosdot_creation$note[g_i[h]]
+add_note <- function(old, new) ifelse(is.na(old), new, paste(old, new))
+master$note[g_late] <- add_note(master$note[g_late], sprintf(
+  "GEOSDOT lists %s (%s) as its instrument of creation, after the 1981 Census in which the unit was already enumerated.",
+  g_instr[g_i[g_late]], format(g_date[g_late])))
+# Disagreements with the other sources
+cmp <- g_has & !h & !g_late
+num <- function(x) gsub("\\D", "", x)
+d_days <- abs(as.integer(g_date - master$created_date))
+d_year <- geosdot_creation$year[g_i] != master$created_year
+d_law  <- num(master$legal_instrument) != "" & num(g_instr[g_i]) != "" &
+  num(master$legal_instrument) != num(g_instr[g_i])
+dis <- cmp & (master$independence_era %in% TRUE | (!is.na(d_days) & d_days > 31) |
+                               (is.na(master$created_date) & !is.na(d_year) & d_year) |
+                               (!is.na(d_law) & d_law))
+master$note[dis] <- add_note(master$note[dis], sprintf(
+  "GEOSDOT gives %s of %s as instrument of creation.", g_instr[g_i[dis]],
+  ifelse(is.na(g_date[dis]), geosdot_creation$year[g_i[dis]], format(g_date[dis]))))
+message("GEOSDOT: creation data added for ", sum(h), " units; ", sum(dis),
+        " disagreements with other sources noted; ", sum(g_late), " late 'creation' not used")
+
 master$created_year <- ifelse(is.na(master$created_date), master$created_year,
                               as.integer(format(master$created_date, "%Y")))
 
@@ -147,7 +188,7 @@ districts <- tibble::as_tibble(districts[, c("inei", "department", "province", "
 
 usethis::use_data(departments, provinces, districts,
                   inei1997_departments, inei1997_provinces, inei1997_districts,
-                  inei1999_districts,
+                  inei1999_districts, geosdot_norms,
                   division_counts, inei_provinces_created,
                   inei_districts_created, inei_district_origins,
                   districts_created_2020_2025,
@@ -156,7 +197,7 @@ usethis::use_data(departments, provinces, districts,
 # CSV copies for non-R users
 dir.create("inst/extdata", showWarnings = FALSE, recursive = TRUE)
 for (nm in c("departments", "provinces", "districts", "inei1997_departments",
-             "inei1997_provinces", "inei1997_districts", "inei1999_districts",
+             "inei1997_provinces", "inei1997_districts", "inei1999_districts", "geosdot_norms",
              "division_counts", "inei_provinces_created",
              "inei_districts_created", "inei_district_origins",
              "districts_created_2020_2025")) {

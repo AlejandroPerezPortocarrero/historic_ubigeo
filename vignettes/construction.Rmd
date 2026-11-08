@@ -31,6 +31,7 @@ The datasets are built by `data-raw/make_datasets.R`, which runs the scripts in 
 | INEI 2022 | INEI (2022), *Proyecciones de Población Total según Departamento, Provincia y Distrito, 2018 – 2022*, Boletín Especial Nº 27, Anexo 2 | Update of INEI 2020 to 31/12/2021: counts at 2021, the 16 districts created 2020–2021 and their territorial origin | `inei2022_be27/` (page images and transcriptions) |
 | JNE 2021 | Jurado Nacional de Elecciones, Resolución N.° 0913-2021-JNE | Exact dates of the 16 districts created 2020–2021 | `post2019/districts_created_2020_2025.csv` |
 | Congreso 2025 | Congreso de la República, *Leyes de creación de distritos* | Alto Trujillo (2022) and Santa Rosa de Loreto (2025) | `post2019/districts_created_2020_2025.csv` |
+| GEOSDOT | PCM–SDOT, *Sistema de consultas de información de naturaleza demarcatoria* (GEOSDOT) | Instrument of creation, and later modifications, of 2,091 departments, provinces and districts; fills the units no other source covers | `geosdot/geosdot_normas.tsv` |
 
 ## INEI (1997): Compendio Estadístico 1996-97
 
@@ -94,6 +95,16 @@ The 2025 frame has 1,892 districts, against 1,874 at 31/12/2019 (INEI 2020) and 
 districts_created_2020_2025[, c("inei", "province", "district", "law_number", "date", "source")]
 ```
 
+## PCM–SDOT: GEOSDOT
+
+The Secretaría de Demarcación y Organización Territorial (SDOT) of the Presidencia del Consejo de Ministros keeps the official registry of the territorial demarcation. Its public consultation system, GEOSDOT (<https://geosdot.servicios.gob.pe/consultas/#/circunscripcion>, public user `consulta`), lists for each department, province and district every legal instrument that concerns it. Each instrument is tagged as **Creación**, **Modificación** or **Cancelación**, with its type, number, date and summary (*sumilla*).
+
+The data were downloaded on 08/11/2026 through the same API the web page uses: the list of units, then the instruments of each one. They are in `data-raw/geosdot/geosdot_normas.tsv` (one row per unit and instrument) and in `geosdot_norms`. The registry has 4,788 instruments for 25 departments, 194 provinces and 1,872 districts. It does not include the Constitutional Province of Callao or Moho as provinces (their districts are there), the 18 districts created in 2020–2025, Urcos (Quispicanchi) or Anco (Churcampa).
+
+GEOSDOT has no district codes. Departments are matched by name, provinces by code (GEOSDOT codes Lima Metropolitana as 2601, INEI as 1501), and districts by name within their province. Four names need an equivalence: Tomayquichua → Tomay Kichwa, Puerto Eten → Eten Puerto, Capaso → Capazo and Raymondi → Raimondi.
+
+Seven districts have a census as their "instrument of creation": they are first recorded in the census of 1876 (Quicacha, Charcana, Querocoto, La Cuesta, Marmot), 1940 (Lomas) or 1981 (Samegua), with no law of creation. For them `created_year` is the year of the census and `created_date` is `NA`.
+
 # Step 1: units in the 2025 Census
 
 Script: `data-raw/01_units_2025.R`.
@@ -116,12 +127,38 @@ Creation data come from these sources, applied in this order:
 2. **INEI 1999** gives the exact date and instrument for each district that existed in 1999. So far this is Lima, matched by department, province and normalised name.
 3. **INEI 2020 / INEI 2022** give the publication date and law for the 43 provinces created 1981–2021, and the year and law for the 210 districts created 1981–2021. When INEI 1999 or INEI 1997 also has the district, its exact date is kept and the law numbers are checked against each other. Provinces keep the publication date, so that `created_date` means the same thing for all of them; the law dates of the 11 provinces created 1990–97 are in `inei1997_provinces`.
 4. **JNE 2021 / Congreso 2025** give the exact date and law for the 18 districts created 2020–2025.
+5. **GEOSDOT** gives the instrument of creation of the units that none of the sources above covers: 1,511 districts and 152 provinces, almost all of them older than 1981.
 
 ```{r sources}
 table(districts$creation_source, useNA = "ifany")
 ```
 
-Districts with no creation source (`NA`) existed before the 1981 Census but their creation date is not yet in the package. Adding the INEI 1999 tables for the other 24 departments will fill most of them.
+Only four units have no creation data: the Constitutional Province of Callao and the districts of Urcos, Anco (Churcampa) and Magdalena de Cao. For Magdalena de Cao, GEOSDOT gives as "creation" the 1984 law that created the province of Ascope, to which the district was transferred; the district already existed at the 1981 Census, so that instrument is not used and is recorded in `note`.
+
+## Agreement between GEOSDOT and the other sources
+
+Where another source already covers a unit, its data are kept, and GEOSDOT is used as a check:
+
+```{r geosdot_check}
+cre <- subset(geosdot_norms, action == "Creación" & !duplicated(inei))
+all_units <- rbind(departments[, c("inei", "created_date", "created_year", "legal_instrument", "creation_source")],
+                   provinces[, c("inei", "created_date", "created_year", "legal_instrument", "creation_source")],
+                   districts[, c("inei", "created_date", "created_year", "legal_instrument", "creation_source")])
+x <- merge(subset(all_units, creation_source != "GEOSDOT"), cre, by = "inei")
+d <- abs(as.integer(x$date - x$created_date))
+y <- as.integer(format(x$date, "%Y"))
+c(units_compared = nrow(x),
+  exact_dates = sum(!is.na(d)), same_date = sum(d == 0, na.rm = TRUE),
+  within_a_week = sum(d <= 7, na.rm = TRUE),
+  year_only = sum(is.na(x$created_date) & !is.na(x$created_year)),
+  same_year = sum(is.na(x$created_date) & !is.na(x$created_year) & y == x$created_year, na.rm = TRUE))
+```
+
+Most differences of a few days are the gap between the date of a law and its publication. Every unit where GEOSDOT gives a different instrument, a date more than a month apart, or another year has the GEOSDOT instrument recorded in `note`. The main patterns are:
+
+- **Departments.** INEI (1997) dates the oldest departments to the founding regulations of 1821–1822, while GEOSDOT often gives a later law (for example Ley S/N of 1857 for Cajamarca and Huancavelica).
+- **Districts dated to the Independence era.** For 43 of the 52 Lima districts that INEI (1999) dates to the "Época de la Independencia", GEOSDOT gives the Ley Transitoria de Municipalidades of 02/01/1857.
+- **Probable errors in one of the sources.** Puente Piedra: INEI (1999) dates Law 5675 to 1957, GEOSDOT to 1927, and law numbers in the 5000s are from the 1920s. Bagua (Amazonas): GEOSDOT dates Law 28884 to 22/09/2006, while INEI (2020) lists it under 2008. The package keeps Bagua absent from the 2007 Census, which matches INEI's national count, but the department table of INEI (2020) counts it. Eduardo Villanueva and José Sabogal (San Marcos) have their laws (23508 and 24044) swapped between INEI (2020) and GEOSDOT.
 
 ## Name equivalences and source issues
 
@@ -195,9 +232,8 @@ The differences cancel out across departments and come from two causes:
 
 # Pending
 
-1. Add the INEI 1999 tables (`dis-*.htm`) for the other 24 departments, so that districts existing before 1981 also get their creation dates.
-2. Creation dates for provinces created before 1981.
-3. Check presence against the UBIGEO lists of each census (2017, 2007, 1993, 1981) and build a crosswalk of codes that changed.
+1. Resolve the disagreements between sources recorded in `note`, going back to the laws themselves (GEOSDOT links to the scanned text of most of them).
+2. Check presence against the UBIGEO lists of each census (2017, 2007, 1993, 1981) and build a crosswalk of codes that changed.
 
 # References
 
@@ -212,5 +248,7 @@ Instituto Nacional de Estadística e Informática (2020). *Perú: Proyecciones d
 Instituto Nacional de Estadística e Informática (2022). *Perú: Proyecciones de Población Total según Departamento, Provincia y Distrito, 2018 – 2022*. Boletín Especial Nº 27. Lima: INEI. <https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1860/libro.pdf>
 
 Instituto Nacional de Estadística e Informática (2025). *Censos Nacionales 2025: listado de ubigeos*. Lima: INEI.
+
+Presidencia del Consejo de Ministros, Secretaría de Demarcación y Organización Territorial (2026). *Sistema de consultas de información de naturaleza demarcatoria (GEOSDOT)*, módulo Circunscripciones. Consulted on 08/11/2026. <https://geosdot.servicios.gob.pe/consultas/#/circunscripcion>
 
 Jurado Nacional de Elecciones (2021). *Resolución N.° 0913-2021-JNE*, 22 de noviembre de 2021. Lima: JNE. <https://portal.jne.gob.pe/portal_documentos/files/72803f45-044d-4c92-841b-6b2dbe8efc0a.pdf>

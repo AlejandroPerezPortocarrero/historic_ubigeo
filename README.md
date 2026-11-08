@@ -30,7 +30,7 @@ The construction steps and sources are documented in the vignette `vignette("con
 | Step | Description | Status |
 |---|---|---|
 | 1 | Units in the 2025 Census (25 departments, 196 provinces, 1,892 districts) | ✅ |
-| 2 | Creation date and legal instrument | 🔄 All 25 departments (INEI 1997); all 43 provinces and 212 districts created 1981–2025, with the exact law date for those created 1990–97 (INEI 1997); Lima's 171 districts (INEI 1999) |
+| 2 | Creation date and legal instrument | ✅ All units but four (Callao province; Urcos, Anco and Magdalena de Cao districts), from INEI 1997–2022, JNE, Congreso and PCM-SDOT (GEOSDOT) |
 | 3 | Presence in the 1981, 1993, 2007 and 2017 censuses | ✅ (matches INEI national counts, and department counts at 31/12/2021) |
 | 4 | Territorial origin of districts created 1981–2021 | ✅ (`inei_district_origins`) |
 | 5 | Creation dates of districts that existed before 1981 (INEI 1999, other 24 departments) | ⏳ |
@@ -48,7 +48,7 @@ The construction steps and sources are documented in the vignette `vignette("con
 | created_year | Year of creation |
 | legal_instrument | Type and number of the legal instrument of creation |
 | independence_era | `TRUE` if the unit dates from the Independence era (no instrument) |
-| creation_source | Source(s) of the creation data (`INEI 1997`, `INEI 1999`, `INEI 2020`, `INEI 2022`, `JNE 2021`, `Congreso 2025`) |
+| creation_source | Source(s) of the creation data (`INEI 1997`, `INEI 1999`, `INEI 2020`, `INEI 2022`, `JNE 2021`, `Congreso 2025`, `GEOSDOT`) |
 | note | Warnings about the data |
 | census_1981 … census_2025 | 1 if the unit existed at the census date, 0 if it was created afterwards |
 
@@ -104,6 +104,7 @@ The source table, parsed and matched to the 2025 UBIGEO.
 | `inei_provinces_created` | 43 provinces created 1981–2021: law, publication date, UBIGEO | INEI 2020; INEI 2022 |
 | `inei_districts_created` | 210 districts created 1981–2021: law, year | INEI 2020; INEI 2022 |
 | `inei_district_origins` | Districts each new district was carved from ("procedencia territorial") | INEI 2020; INEI 2022 |
+| `geosdot_norms` | 4,788 legal instruments of creation, modification and cancellation of 2,091 departments, provinces and districts | PCM-SDOT (GEOSDOT) |
 | `districts_created_2020_2025` | 18 districts created 2020–2025: law, exact date | JNE 2021; Congreso 2025 |
 
 Census presence refers to the unit as identified in 2025. A district later split from another still counts as present in earlier censuses, with a larger territory; units abolished before 2025 are not included. See `vignette("construction", package = "ubigeocensos")`.
@@ -123,6 +124,7 @@ devtools::document()
 - **INEI 1999**: Instituto Nacional de Estadística e Informática (1999). *Perú: Directorio Nacional de Municipalidades Provinciales y Distritales 1999*. Lima: INEI. <https://proyectos.inei.gob.pe/web/biblioineipub/bancopub/Est/Lib0362/indice.htm>
 - **INEI 2020**: Instituto Nacional de Estadística e Informática (2020). *Perú: Proyecciones de Población por Departamento, Provincia y Distrito, 2018 - 2020*. Boletín Especial Nº 26. Lima: INEI. Chapter 2, "División política y administrativa al 31 de diciembre del 2019". <https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1715/libro.pdf>
 - **INEI 2022**: Instituto Nacional de Estadística e Informática (2022). *Perú: Proyecciones de Población Total según Departamento, Provincia y Distrito, 2018 – 2022*. Boletín Especial Nº 27. Lima: INEI. Anexo 2, "División política y administrativa al 31 de diciembre de 2021". <https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1860/libro.pdf>
+- **GEOSDOT**: Presidencia del Consejo de Ministros, Secretaría de Demarcación y Organización Territorial (2026). *Sistema de consultas de información de naturaleza demarcatoria (GEOSDOT)*, módulo Circunscripciones. Consulted on 08/11/2026. <https://geosdot.servicios.gob.pe/consultas/#/circunscripcion>
 - **JNE 2021**: Jurado Nacional de Elecciones (2021). *Resolución N.° 0913-2021-JNE*, 22 de noviembre de 2021. <https://portal.jne.gob.pe/portal_documentos/files/72803f45-044d-4c92-841b-6b2dbe8efc0a.pdf>
 - **Congreso 2025**: Congreso de la República (2025). *Leyes de creación de distritos*. Área de Estadística Parlamentaria. <https://www.congreso.gob.pe/Docs/DGP/GestionInformacionEstadistica/files/publicaciones-25/leyes-declarativas-creaci%C3%93n-distritos.pdf>
 

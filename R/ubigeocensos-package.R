@@ -8,7 +8,8 @@
 #' Source tables: [inei1997_departments], [inei1997_provinces],
 #' [inei1997_districts], [inei1999_districts], [division_counts],
 #' [inei_provinces_created], [inei_districts_created],
-#' [inei_district_origins], [districts_created_2020_2025].
+#' [inei_district_origins], [districts_created_2020_2025],
+#' [geosdot_norms].
 #'
 #' @keywords internal
 "_PACKAGE"

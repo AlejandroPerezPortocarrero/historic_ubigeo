@@ -1,26 +1,26 @@
 "inei","department","created_date","created_year","legal_instrument","independence_era","creation_source","note","census_1981","census_1993","census_2007","census_2017","census_2025"
 "010000","AMAZONAS",1832-11-21,1832,"LEY S/N",FALSE,"INEI 1997",,1,1,1,1,1
-"020000","ANCASH",1821-02-12,1821,"REGLTO.PROVISIONAL",FALSE,"INEI 1997","Este Departamento figura en el Reglamento Provisional del 12-Feb-1821, con el nombre Huaylas. Ley del 04-Nov-1823 se unió los Departamento Huaylas y Tarma bajo la denominación Huánuco, por Decreto del 13-Set-1825 se dio el nombre Junín al Departamento Huánuco. El 12-Jun-1835, se expidió un Decreto creando nuevamente el Departamento Huaylas, con fecha 10-Oct-1836 se dio otro Decreto dividiendo el Departamento Junín en dos: Junín y Huaylas. Por Decreto del 28-Feb-1839 se dio el nombre Ancash al Departamento Huaylas.",1,1,1,1,1
+"020000","ANCASH",1821-02-12,1821,"REGLTO.PROVISIONAL",FALSE,"INEI 1997","Este Departamento figura en el Reglamento Provisional del 12-Feb-1821, con el nombre Huaylas. Ley del 04-Nov-1823 se unió los Departamento Huaylas y Tarma bajo la denominación Huánuco, por Decreto del 13-Set-1825 se dio el nombre Junín al Departamento Huánuco. El 12-Jun-1835, se expidió un Decreto creando nuevamente el Departamento Huaylas, con fecha 10-Oct-1836 se dio otro Decreto dividiendo el Departamento Junín en dos: Junín y Huaylas. Por Decreto del 28-Feb-1839 se dio el nombre Ancash al Departamento Huaylas. GEOSDOT gives LEY S/N of 1851-11-05 as instrument of creation.",1,1,1,1,1
 "030000","APURIMAC",1873-04-28,1873,"LEY S/N",FALSE,"INEI 1997",,1,1,1,1,1
 "040000","AREQUIPA",1822-04-26,1822,"DECRETO S/N",FALSE,"INEI 1997",,1,1,1,1,1
 "050000","AYACUCHO",1822-04-26,1822,"REGLTO.DE ELECCIONES",FALSE,"INEI 1997","En el Reglamento Provisional de Elecciones del 26-Abr-1822, se designa a este Departamento con el nombre Huamanga. Por Decreto del 15-Feb-1825 se dio el nombre Ayacucho.",1,1,1,1,1
-"060000","CAJAMARCA",1855-02-11,1855,"DECRETO S/N",FALSE,"INEI 1997",,1,1,1,1,1
+"060000","CAJAMARCA",1855-02-11,1855,"DECRETO S/N",FALSE,"INEI 1997","GEOSDOT gives LEY S/N of 1857-01-02 as instrument of creation.",1,1,1,1,1
 "070000","CALLAO",1836-08-20,1836,"DECRETO S/N",FALSE,"INEI 1997","El Decreto del 20-Ago-1836 erigió en Gobierno Litoral los pueblos del Callao y Bellavista, por ley del 22-Abr-1857, se le dio el nombre Provincia Constitucional.",1,1,1,1,1
 "080000","CUSCO",1822-04-26,1822,"REGLTO.DE ELECCIONES",FALSE,"INEI 1997",,1,1,1,1,1
-"090000","HUANCAVELICA",1822-04-26,1822,"REGLTO.DE ELECCIONES",FALSE,"INEI 1997",,1,1,1,1,1
+"090000","HUANCAVELICA",1822-04-26,1822,"REGLTO.DE ELECCIONES",FALSE,"INEI 1997","GEOSDOT gives LEY S/N of 1857-01-02 as instrument of creation.",1,1,1,1,1
 "100000","HUANUCO",1869-01-24,1869,"LEY S/N",FALSE,"INEI 1997",,1,1,1,1,1
-"110000","ICA",1866-01-30,1866,"DECRETO S/N",FALSE,"INEI 1997",,1,1,1,1,1
-"120000","JUNIN",1821-02-12,1821,"REGLTO.PROVISIONAL",FALSE,"INEI 1997","Este Departamento figura en el Reglamento Provisional del 12-Feb-1821 con el nombre Tarma. Por Ley del 04-Nov-1823 se unió los Departamentos Huaylas y Tarma bajo la denominación Huánuco. Por Decreto del 13-Set-1825 se dio a este Departamento el nombre Junín.",1,1,1,1,1
-"130000","LA LIBERTAD",1821-02-12,1821,"REGLTO.PROVISIONAL",FALSE,"INEI 1997","En el Reglamento Provisional del 12-Feb-1821, figura este Departamento con el nombre Trujillo, por Ley del 09-Mar-1825, se le dio la denominación La Libertad.",1,1,1,1,1
+"110000","ICA",1866-01-30,1866,"DECRETO S/N",FALSE,"INEI 1997","GEOSDOT gives LEY S/N of 1868-10-30 as instrument of creation.",1,1,1,1,1
+"120000","JUNIN",1821-02-12,1821,"REGLTO.PROVISIONAL",FALSE,"INEI 1997","Este Departamento figura en el Reglamento Provisional del 12-Feb-1821 con el nombre Tarma. Por Ley del 04-Nov-1823 se unió los Departamentos Huaylas y Tarma bajo la denominación Huánuco. Por Decreto del 13-Set-1825 se dio a este Departamento el nombre Junín. GEOSDOT gives LEY S/N of 1823-11-04 as instrument of creation.",1,1,1,1,1
+"130000","LA LIBERTAD",1821-02-12,1821,"REGLTO.PROVISIONAL",FALSE,"INEI 1997","En el Reglamento Provisional del 12-Feb-1821, figura este Departamento con el nombre Trujillo, por Ley del 09-Mar-1825, se le dio la denominación La Libertad. GEOSDOT gives DECRETO S/N of 1822-04-26 as instrument of creation.",1,1,1,1,1
 "140000","LAMBAYEQUE",1874-12-01,1874,"LEY S/N",FALSE,"INEI 1997",,1,1,1,1,1
-"150000","LIMA",1821-08-04,1821,"DECRETO S/N",FALSE,"INEI 1997",,1,1,1,1,1
-"160000","LORETO",1866-02-07,1866,"DECRETO S/N",FALSE,"INEI 1997",,1,1,1,1,1
+"150000","LIMA",1821-08-04,1821,"DECRETO S/N",FALSE,"INEI 1997","GEOSDOT gives DECRETO S/N of 1822-04-26 as instrument of creation.",1,1,1,1,1
+"160000","LORETO",1866-02-07,1866,"DECRETO S/N",FALSE,"INEI 1997","GEOSDOT gives RESOLUCIÓN LEGISLATIVA S/N of 1868-09-11 as instrument of creation.",1,1,1,1,1
 "170000","MADRE DE DIOS",1912-12-26,1912,"LEY 1782",FALSE,"INEI 1997",,1,1,1,1,1
-"180000","MOQUEGUA",1857-01-02,1857,"LEY S/N",FALSE,"INEI 1997","La ley Nº8230 del 03-Abr-1936, volvió a crear el Departamento Moquegua.",1,1,1,1,1
+"180000","MOQUEGUA",1857-01-02,1857,"LEY S/N",FALSE,"INEI 1997","La ley Nº8230 del 03-Abr-1936, volvió a crear el Departamento Moquegua. GEOSDOT gives LEY 8230 of 1936-04-03 as instrument of creation.",1,1,1,1,1
 "190000","PASCO",1944-11-27,1944,"LEY 10030",FALSE,"INEI 1997",,1,1,1,1,1
 "200000","PIURA",1861-03-30,1861,"LEY S/N",FALSE,"INEI 1997",,1,1,1,1,1
 "210000","PUNO",1822-04-26,1822,"REGLTO.DE ELECCIONES",FALSE,"INEI 1997",,1,1,1,1,1
 "220000","SAN MARTIN",1906-09-04,1906,"LEY 201",FALSE,"INEI 1997",,1,1,1,1,1
-"230000","TACNA",1875-06-25,1875,"LEY S/N",FALSE,"INEI 1997",,1,1,1,1,1
+"230000","TACNA",1875-06-25,1875,"LEY S/N",FALSE,"INEI 1997","GEOSDOT gives LEY S/N of 1857-01-02 as instrument of creation.",1,1,1,1,1
 "240000","TUMBES",1942-11-25,1942,"LEY 9667",FALSE,"INEI 1997",,1,1,1,1,1
-"250000","UCAYALI",1980-06-18,1980,"LEY 23099",FALSE,"INEI 1997",,1,1,1,1,1
+"250000","UCAYALI",1980-06-18,1980,"LEY 23099",FALSE,"INEI 1997","GEOSDOT lists ACTA DE ACUERDO DE LÍMITES S/N (2010-11-19) as its instrument of creation, after the 1981 Census in which the unit was already enumerated.",1,1,1,1,1
